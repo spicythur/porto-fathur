@@ -47,14 +47,14 @@ const Projects = () => {
             y: -260,
             scale: 0.5,
             ease: "power2.out",
-            duration: 0.8
+            duration: 0.5
         }, 0.1); // Mulai di 0.3 (ada jeda)
 
         // Fade in gambar
         tl.from('.project-panel img', {
             opacity: 0,
             ease: "power2.in",
-            duration: 0.3
+            duration: 0.2
         }, 0.1);
 
         // Fade in doodle
@@ -69,7 +69,7 @@ const Projects = () => {
             xPercent: -100 * (panels.length - 1) / panels.length,
             ease: "none",
             duration: 1
-        }, 0.5); // Dimulai setelah teks selesai naik (0.3 + 0.8 = 1.1)
+        }, 0.3); // Dimulai setelah teks selesai naik (0.3 + 0.8 = 1.1)
 
     }, { scope: wrapperRef });
 

@@ -20,7 +20,7 @@ const projects = [
 
 const PANEL_WIDTH = 1000; // Lebar per panel gambar (diperkecil dari 1440 agar gambar lebih dekat)
 const PANEL_HEIGHT = 900;
-const SCROLL_PER_PANEL = 1200; // Diperbesar dari 600 agar kecepatan geser lebih pelan
+const SCROLL_PER_PANEL = 1000; // Diperbesar dari 600 agar kecepatan geser lebih pelan
 const TOTAL_HEIGHT = PANEL_HEIGHT + (projects.length * SCROLL_PER_PANEL);
 
 const Projects = () => {
@@ -122,7 +122,7 @@ const Projects = () => {
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="project-panel shrink-0 h-full flex flex-col justify-center items-center relative pt-32"
+                            className="project-panel shrink-0 h-full flex flex-col justify-center items-center relative pt-32 bottom-15"
                             style={{ width: `${PANEL_WIDTH}px` }}
                         >
                             <div className="h-[60%] w-full flex items-center justify-center px-20">

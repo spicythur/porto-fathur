@@ -82,8 +82,9 @@ export default function Skill() {
                 alt=""
                 className="absolute -top-1 z-0"
                 style={{
-                    width: "100%",    // ganti angkanya sesuka kamu
-                    height: "210%",   // ganti angkanya sesuka kamu
+                    width: "100%",
+                    height: "100%",
+                    minHeight: "210%",
                     objectFit: "fill"
                 }}
             />

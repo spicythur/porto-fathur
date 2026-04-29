@@ -72,7 +72,7 @@ export default function About() {
     }, { scope: container });
 
     return (
-        <section id="about" ref={container} className="relative z-0 w-full min-h-screen bg-[#2E8E37] -mt-10">
+        <section id="about" ref={container} className="relative z-0 w-full min-h-screen bg-[#2E8E37] -mt-40">
 
             {/* Konten */}
             <div className="relative z-10 flex w-full h-full min-h-screen px-10 py-20">
@@ -104,12 +104,12 @@ export default function About() {
 
 
                     {/* Teks */}
-                    <p className="about-text text-[#F7DF19] text-3xl leading-relaxed font-[crayon]">
+                    <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
                         <span className="text-5xl ">Hi!</span> I am Agus Fathurrahman Rifai <br /> usually
                         called Fathur. I am an Information Technology <br /> student at Universitas Brawijaya,
                         originally from Jakarta.
                     </p>
-                    <p className="about-text text-[#F7DF19] text-3xl leading-relaxed font-[crayon]">
+                    <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
                         And also I have a deep passion for <br />bridging the gap between functionality and <br />
                         aesthetics through UI/UX Design and Graphic Design. <br /> Beyond visuals, I am also an
                         enthusiast in coding, <br /> which allows me to understand.
@@ -130,7 +130,7 @@ export default function About() {
             <img
                 src="/bawah.png"
                 alt="bawah"
-                className="absolute -bottom-26 left-0 w-full z-20 object-scale-down"
+                className="absolute -bottom-20 left-0 w-full z-20 object-scale-down"
             />
         </section>
     )

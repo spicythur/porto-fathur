@@ -91,17 +91,13 @@ export default function About() {
                     <img
                         src="/fathur.svg"
                         alt="Fathur"
-                        className="about-photo w-[110%] object-contain mt-0 ml-0"
+                        className="about-photo w-[110%] object-contain mt-0 ml-0 pointer-events-none"
                     />
 
                 </div>
 
-
-
                 {/* Kanan - Deskripsi */}
                 <div className="flex flex-col w-1/2 justify-center gap-10 pt-20 mt-70">
-
-
 
                     {/* Teks */}
                     <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
@@ -117,12 +113,11 @@ export default function About() {
 
                 </div>
 
-
                 {/* Doodle bunga */}
                 <img
                     src="/bunga.svg"
                     alt=""
-                    className="about-doodle w-40  self-end mb-190 -mr-10"
+                    className="about-doodle w-40 self-end mb-190 -mr-10"
                 />
 
             </div>
@@ -130,7 +125,7 @@ export default function About() {
             <img
                 src="/bawah.png"
                 alt="bawah"
-                className="absolute -bottom-20 left-0 w-full z-20 object-scale-down"
+                className="absolute -bottom-20 left-0 w-full z-20 object-scale-down pointer-events-none"
             />
         </section>
     )

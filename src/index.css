@@ -13,6 +13,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Gunakan custom cursor SVG secara native lewat CSS (sangat ringan/enteng) */
+@media (pointer: fine) {
+  body, a, button, .cursor-pointer {
+    cursor: url('/cursor.svg'), auto !important;
+  }
+}
+
 @font-face {
   font-family: 'crayon';
   src: url('/crayon.ttf');
@@ -29,4 +36,13 @@ body {
   50% {
     transform: translateY(-20px);
   }
+}
+
+/* Utilitas untuk Native Mobile Swipe (menyembunyikan scrollbar) */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

@@ -10,11 +10,13 @@ import About from "./components/About"
 import Skill from "./components/skill"
 import Projects from "./components/Projects"
 import Contact from "./components/contact"
+import Preloader from "./components/Preloader"
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const [scale, setScale] = useState(1);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // 1. Setup Smooth Scrolling dengan Lenis
@@ -32,6 +34,22 @@ export default function App() {
     });
     gsap.ticker.lagSmoothing(0);
 
+    // Stop scrolling saat loading
+    if (isLoading) {
+      lenis.stop();
+    } else {
+      lenis.start();
+      // Pastikan GSAP menghitung ulang semua titik koordinat animasi 
+      // setelah preloader hilang dan semua font selesai dimuat
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+      
+      document.fonts.ready.then(() => {
+        ScrollTrigger.refresh();
+      });
+    }
+
     // 2. Setup Zoom Responsiveness
     const handleResize = () => {
       setScale(window.innerWidth / 1440);
@@ -46,16 +64,20 @@ export default function App() {
       lenis.destroy();
       gsap.ticker.remove((time) => lenis.raf(time * 1000));
     };
-  }, []);
+  }, [isLoading]);
 
   return (
-    <div style={{ zoom: scale }}>
-      <NavBar />
-      <Hero />
-      <About />
-      <Skill />
-      <Projects />
-      <Contact />
-    </div>
+    <>
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      
+      <div style={{ zoom: scale }}>
+        <NavBar />
+        <Hero />
+        <About />
+        <Skill />
+        <Projects />
+        <Contact />
+      </div>
+    </>
   )
 }

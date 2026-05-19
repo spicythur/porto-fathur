@@ -92,11 +92,8 @@ export default function Skill() {
             {/* Konten */}
             <div className="relative z-10 flex flex-col w-full min-h-screen px-10 py-20 ">
 
-
-
                 {/* Area tengah - icon + foto */}
                 <div className="relative flex items-center justify-center w-full mt-10" style={{ height: "600px" }}>
-
 
                     {/* Teks My Skill */}
                     <img
@@ -153,7 +150,7 @@ export default function Skill() {
                     <img
                         src="/fathur2.svg"
                         alt="Fathur"
-                        className="skill-photo absolute -bottom-230 left-1/3 -translate-x-1/2 h-[170%] object-cover mb-10"
+                        className="skill-photo absolute -bottom-230 left-1/3 -translate-x-1/2 h-[170%] object-cover mb-10 pointer-events-none"
                     />
 
                 </div>

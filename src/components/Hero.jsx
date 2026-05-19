@@ -58,7 +58,7 @@ export default function Hero() {
             <img
                 src="/teks-porto.svg"
                 alt="Porto Folio"
-                className="hero-text absolute top-20 left-50 z-10 w-[45%]"
+                className="hero-text absolute top-10 left-50 z-10 w-[45%]"
             />
 
         </section>

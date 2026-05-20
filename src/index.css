@@ -11,7 +11,8 @@ body {
   color: #0f172a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
 }
 
 /* Gunakan custom cursor SVG secara native lewat CSS (sangat ringan/enteng) */

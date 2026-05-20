@@ -1,3 +1,5 @@
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa";
+
 export default function Contact() {
     return (
         <section id="contact" className="relative w-full z-20 -mt-28">
@@ -30,20 +32,30 @@ export default function Contact() {
                 </p>
 
                 {/* Tombol */}
-                <button className="mt-2 px-8 py-3 bg-[#F7DF19] rounded-full text-[#2E8E37] font-black tracking-widest hover:bg-[#2E8E37]  hover:text-[#F7DF19] transition-all duration-300">
+                <a 
+                    href="/cv.pdf" 
+                    download
+                    className="mt-2 px-8 py-3 bg-[#F7DF19] rounded-full text-[#2E8E37] font-black tracking-widest hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-all duration-300 inline-block"
+                >
                     WORKING WITH ME
-                </button>
+                </a>
 
                 {/* Social icons */}
                 <div className="flex gap-4 mt-2">
-                    {["📷", "💼", "🎨"].map((icon, i) => (
+                    {[
+                        { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/tthuuur?igsh=N3RpeGo4MXR6dnR0&utm_source=qr" },
+                        { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/agus-fathurrahman-rifai/" },
+                        { icon: <FaGithub size={20} />, href: "https://github.com/spicythur" }
+                    ].map((item, i) => (
 
                         <a
                             key={i}
-                            href="#"
-                            className="w-10 h-10 rounded-full bg-[#F7DF19] flex items-center justify-center text-lg hover:bg-[#2E8E37] hover:text-white transition-all duration-300"
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-10 h-10 rounded-full bg-[#F7DF19] flex items-center justify-center text-[#2E8E37] hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-all duration-300"
                         >
-                            {icon}
+                            {item.icon}
                         </a>
                     ))}
                 </div>

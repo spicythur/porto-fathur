@@ -48,12 +48,15 @@ const Projects = () => {
         // === ANIMASI DESKTOP (GSAP SCRUB) ===
         const panels = gsap.utils.toArray('.project-panel');
 
+        // Set opacity awal card jadi 0
+        gsap.set(panels, { opacity: 0 });
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
                 start: "top top",
                 end: `+=${TOTAL_HEIGHT - PANEL_HEIGHT}`, // Scroll sejauh sisa tinggi
-                scrub: 2.5,
+                scrub: 2,
             }
         });
 
@@ -67,6 +70,14 @@ const Projects = () => {
             ease: "power2.out",
             duration: 0.5
         }, 0.1); // Mulai di 0.1 (ada jeda)
+
+        // Card muncul (fade in) pas teks setengah naik
+        tl.to(panels, {
+            opacity: 1,
+            duration: 0.2,
+            stagger: 0.02,
+            ease: "power1.inOut"
+        }, 0.15); // Mulai lebih awal (0.15) biar pas setengah jalan udah keliatan
 
         // Horizontal scroll
         tl.to('.project-wrapper', {

@@ -7,7 +7,7 @@ export default function Contact() {
                 src="/bb-contact.svg"
                 alt=""
                 className="absolute top-0 left-0"
-                style={{ width: "100%", height: "100%", objectFit: "fill" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
 
             {/* Konten */}

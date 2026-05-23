@@ -123,7 +123,7 @@ const Projects = () => {
                         className={`project-wrapper flex h-full ${isMobile ? 'pl-[5vw] pr-[5vw] overflow-x-auto snap-x snap-mandatory hide-scrollbar' : 'pl-[10vw] pr-[20vw]'}`}
                         style={{
                             width: isMobile ? '100%' : 'max-content',
-                            paddingTop: '80%',
+                            paddingTop: isMobile ? '80%' : '350px',
                             scrollbarWidth: 'none',
                             msOverflowStyle: 'none'
                         }}

@@ -103,7 +103,7 @@ const Projects = () => {
                     <img
                         src="/pantai.jpg"
                         alt=""
-                        className="absolute top-5 left-0 w-full object-cover pointer-events-none"
+                        className="absolute left-0 w-full object-cover pointer-events-none"
                         style={{ height: `${PANEL_HEIGHT}px` }}
                     />
 

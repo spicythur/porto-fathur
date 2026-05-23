@@ -101,7 +101,7 @@ export default function About() {
 
                     {/* Teks */}
                     <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
-                        <span className="text-5xl ">Hi!</span> I am Agus Fathurrahman Rifai <br /> usually
+                        <span className="text-5xl">Hi!</span> I am Agus Fathurrahman Rifai <br /> usually
                         called Fathur. I am an Information Technology <br /> student at Universitas Brawijaya,
                         originally from Jakarta.
                     </p>

@@ -11,6 +11,7 @@ import Skill from "./components/skill"
 import Projects from "./components/Projects"
 import Contact from "./components/contact"
 import Preloader from "./components/Preloader"
+import Experience from "./components/Experience"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,6 +76,7 @@ export default function App() {
         <Hero />
         <About />
         <Skill />
+        <Experience />
         <Projects />
         <Contact />
       </div>

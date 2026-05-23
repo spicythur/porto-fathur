@@ -4,7 +4,8 @@
       "Bash(npx vite *)",
       "Bash(Remove-Item *)",
       "Bash(npm cache *)",
-      "Bash(rm -rf /tmp/*)"
+      "Bash(rm -rf /tmp/*)",
+      "Bash(node -e ' *)"
     ]
   }
 }

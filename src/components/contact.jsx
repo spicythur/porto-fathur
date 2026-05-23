@@ -35,6 +35,26 @@ export default function Contact() {
             scrollTrigger: {
                 trigger: container.current,
                 start: isMobile ? "top 85%" : "top 60%",
+                toggleActions: "play none none reverse"
+            }
+        });
+
+        // Scrub rotation pada social icons
+        const socialLinks = gsap.utils.toArray('.contact-item');
+        socialLinks.forEach((el, i) => {
+            if (i >= 4) { // social icon containers (index 4+)
+                gsap.fromTo(el, {
+                    rotation: -5,
+                }, {
+                    rotation: 5,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: container.current,
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: 1.5,
+                    }
+                });
             }
         });
 
@@ -81,11 +101,11 @@ export default function Contact() {
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-16 gap-6 min-h-screen">
+            <div className="relative z-10 flex flex-col items-center justify-center py-16 pb-20 gap-6 min-h-screen">
 
                 {/* Judul */}
                 <h2
-                    className="contact-item text-8xl text-[#F7DF19]"
+                    className="contact-item text-7xl text-[#F7DF19]"
                     style={{ fontFamily: "crayon, sans-serif" }}
                 >
                     Contact Me!

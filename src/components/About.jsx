@@ -14,7 +14,8 @@ export default function About() {
         gsap.from(".about-title", {
             scrollTrigger: {
                 trigger: container.current,
-                start: "top 60%", // Mulai animasi saat bagian atas container mencapai 60% tinggi layar
+                start: "top 60%",
+                toggleActions: "play none none reverse"
             },
             x: -100,
             opacity: 0,
@@ -27,6 +28,7 @@ export default function About() {
             scrollTrigger: {
                 trigger: container.current,
                 start: "top 50%",
+                toggleActions: "play none none reverse"
             },
             x: -150,
             opacity: 0,
@@ -44,6 +46,7 @@ export default function About() {
                     scrollTrigger: {
                         trigger: container.current,
                         start: "top 50%",
+                        toggleActions: "play none none reverse"
                     },
                     y: 50,
                     opacity: 0,
@@ -60,6 +63,7 @@ export default function About() {
             scrollTrigger: {
                 trigger: container.current,
                 start: "top 40%",
+                toggleActions: "play none none reverse"
             },
             scale: 0,
             rotation: -90,
@@ -67,6 +71,30 @@ export default function About() {
             duration: 1,
             ease: "back.out(2)",
             delay: 0.8
+        });
+
+        // Scrub rotation pada doodle bunga
+        gsap.to(".about-doodle", {
+            rotation: 45,
+            ease: "none",
+            scrollTrigger: {
+                trigger: container.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5,
+            }
+        });
+
+        // Scrub: foto Fathur sedikit miring saat scroll
+        gsap.to(".about-photo", {
+            rotation: -2,
+            ease: "none",
+            scrollTrigger: {
+                trigger: container.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 2,
+            }
         });
 
     }, { scope: container });
@@ -91,7 +119,7 @@ export default function About() {
                     <img
                         src="/fathur.svg"
                         alt="Fathur"
-                        className="about-photo w-[110%] object-contain mt-0 ml-0 pointer-events-none"
+                        className="about-photo w-full object-contain mt-0 ml-0 pointer-events-none"
                     />
 
                 </div>
@@ -101,14 +129,10 @@ export default function About() {
 
                     {/* Teks */}
                     <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
-                        <span className="text-5xl">Hi!</span> I am Agus Fathurrahman Rifai <br /> usually
-                        called Fathur. I am an Information Technology <br /> student at Universitas Brawijaya,
-                        originally from Jakarta.
+                        <span className="text-5xl">Hi!</span> I am Agus Fathurrahman Rifai usually called Fathur. I am an Information Technology student at Universitas Brawijaya, originally from Jakarta.
                     </p>
                     <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
-                        And also I have a deep passion for <br />bridging the gap between functionality and <br />
-                        aesthetics through UI/UX Design and Graphic Design. <br /> Beyond visuals, I am also an
-                        enthusiast in coding, <br /> which allows me to understand.
+                        And also I have a deep passion for bridging the gap between functionality and aesthetics through UI/UX Design and Graphic Design. Beyond visuals, I am also an enthusiast in coding, which allows me to understand.
                     </p>
 
                 </div>

@@ -34,14 +34,17 @@ export default function NavBar() {
 
     const handleNavClick = (e, targetId) => {
         e.preventDefault();
-        
+
         // Tutup navbar setelah diklik agar tidak menutupi layar
         handleMouseLeave();
+
+        // Offset khusus Experience karena title ada di top-170
+        const offsetY = targetId === '#experience' ? -400 : 0;
 
         // Scroll halus ke section yang dituju
         gsap.to(window, {
             duration: 1.2,
-            scrollTo: { y: targetId, offsetY: 0 },
+            scrollTo: { y: targetId, offsetY },
             ease: "power3.inOut"
         });
     };
@@ -68,7 +71,7 @@ export default function NavBar() {
                 >
                     {/* Navigation Links */}
                     <ul className="flex gap-15 relative z-20">
-                        {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((link) => {
+                        {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((link) => {
                             const targetId = `#${link.toLowerCase()}`;
                             return (
                                 <li key={link}>

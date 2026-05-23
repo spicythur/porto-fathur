@@ -91,7 +91,7 @@ const Projects = () => {
             <section
                 id="projects"
                 ref={wrapperRef}
-                className="relative w-full mt-[123px]"
+                className="relative w-full -mt-200"
                 style={{ height: `${TOTAL_HEIGHT}px` }}
             >
                 <div

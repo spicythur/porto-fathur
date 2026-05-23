@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -26,6 +26,11 @@ const Projects = () => {
     const wrapperRef = useRef(null);
     const stickyRef = useRef(null);
     const [selectedProject, setSelectedProject] = useState(null);
+    const [loadedImages, setLoadedImages] = useState({});
+
+    const handleImageLoad = useCallback((id) => {
+        setLoadedImages(prev => ({ ...prev, [id]: true }));
+    }, []);
 
     const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
     const isSmallMobile = typeof window !== 'undefined' ? window.innerWidth < 430 : false;
@@ -40,6 +45,9 @@ const Projects = () => {
         if (isMobile) return;
 
         const panels = gsap.utils.toArray('.project-panel');
+        if (panels.length === 0) return;
+
+        // Hide cards immediately
         gsap.set(panels, { opacity: 0 });
 
         const tl = gsap.timeline({
@@ -55,14 +63,16 @@ const Projects = () => {
             y: -260,
             scale: 0.5,
             ease: "power2.out",
-            duration: 0.5
+            duration: 0.5,
+            immediateRender: true
         }, 0.1);
 
         tl.to(panels, {
             opacity: 1,
             duration: 0.2,
             stagger: 0.02,
-            ease: "power1.inOut"
+            ease: "power1.inOut",
+            immediateRender: false
         }, 0.15);
 
         tl.to('.project-wrapper', {
@@ -135,7 +145,7 @@ const Projects = () => {
                             return (
                                 <div
                                     key={project.id}
-                                    className={`project-panel shrink-0 flex flex-col justify-start items-center relative ${isMobile ? 'snap-center mx-3' : 'pt-3 ' + (index !== 0 ? '-ml-24' : '')}`}
+                                    className={`project-panel shrink-0 flex flex-col justify-start items-center bottom-24 relative ${isMobile ? 'snap-center mx-3' : 'pt-3 ' + (index !== 0 ? '-ml-24' : '')}`}
                                 >
                                     <div
                                         onClick={() => setSelectedProject(project)}
@@ -144,10 +154,15 @@ const Projects = () => {
                                     >
                                         {/* Image - 70% tinggi card */}
                                         <div className="w-full relative overflow-hidden rounded-t-sm" style={{ height: '70%' }}>
+                                            {/* Placeholder shimmer */}
+                                            {!loadedImages[project.id] && (
+                                                <div className="absolute inset-0 bg-[#e8e5dd] animate-pulse" />
+                                            )}
                                             <img
                                                 src={project.imageUrl}
                                                 alt={project.title}
-                                                className="w-full h-full object-cover"
+                                                className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'}`}
+                                                onLoad={() => handleImageLoad(project.id)}
                                             />
                                         </div>
 

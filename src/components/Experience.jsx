@@ -98,7 +98,7 @@ export default function Experience() {
     }, { scope: container });
 
     return (
-        <section id="experience" ref={container} className="relative pb-10 bg-white top-190">
+        <section id="experience" ref={container} className="relative pb-10 bg-white top-195">
 
             {/* Background SVG (parallax layer) */}
             <img

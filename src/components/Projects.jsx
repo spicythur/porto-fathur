@@ -1,4 +1,4 @@
-import React, { useRef, useState, useCallback } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -27,18 +27,27 @@ const Projects = () => {
     const stickyRef = useRef(null);
     const [selectedProject, setSelectedProject] = useState(null);
     const [loadedImages, setLoadedImages] = useState({});
+    const [isMobile, setIsMobile] = useState(() =>
+        typeof window !== 'undefined' ? window.innerWidth < 768 : false
+    );
+    const [isSmallMobile, setIsSmallMobile] = useState(() =>
+        typeof window !== 'undefined' ? window.innerWidth < 430 : false
+    );
+
+    useEffect(() => {
+        const update = () => {
+            setIsMobile(window.innerWidth < 768);
+            setIsSmallMobile(window.innerWidth < 430);
+        };
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
 
     const handleImageLoad = useCallback((id) => {
         setLoadedImages(prev => ({ ...prev, [id]: true }));
     }, []);
 
-    const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-    const isSmallMobile = typeof window !== 'undefined' ? window.innerWidth < 430 : false;
-
-    const scale = typeof window !== 'undefined' ? window.innerWidth / 1440 : 1;
-    const bgHeight = typeof window !== 'undefined' ? window.innerHeight / scale : 900;
-
-    const PANEL_HEIGHT = isMobile ? bgHeight : 900;
+    const PANEL_HEIGHT = 900;
     const TOTAL_HEIGHT = isMobile ? PANEL_HEIGHT : PANEL_HEIGHT + (projects.length * SCROLL_PER_PANEL);
 
     useGSAP(() => {
@@ -86,6 +95,119 @@ const Projects = () => {
 
     }, { scope: wrapperRef, dependencies: [isMobile] });
 
+    if (isMobile) {
+        return (
+            <>
+                <section
+                    id="projects"
+                    className="relative w-full -mt-190"
+                    style={{ height: '180svh' }}
+                >
+                    {/* Beach image — 100svh */}
+                    <img
+                        src="/pantai.jpg"
+                        alt=""
+                        className="absolute inset-0 w-full h-full object-cover pointer-events-none top-15"
+                    />
+
+                    {/* Teks Projects */}
+                    <img
+                        src="/project.svg"
+                        alt="Projects"
+                        className="absolute top-[5%] w-[60%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+                    />
+
+                    {/* Doodle burung */}
+                    <div className="absolute left-[5%] top-[3%] z-20">
+                        <img src="/burung 1.svg" alt="burung" className="w-10" style={{ animation: 'float 1.5s ease-in-out infinite' }} />
+                    </div>
+                    <div className="absolute left-[20%] top-[8%] z-20">
+                        <img src="/burung 1.svg" alt="burung" className="w-10" style={{ animation: 'float 2s ease-in-out infinite' }} />
+                    </div>
+                    <div className="absolute right-[20%] top-[8%] z-20">
+                        <img src="/burung 2.svg" alt="burung" className="w-10" style={{ animation: 'float 2.5s ease-in-out infinite' }} />
+                    </div>
+                    <div className="absolute right-[5%] top-[3%] z-20">
+                        <img src="/burung 3.svg" alt="burung" className="w-10" style={{ animation: 'float 3s ease-in-out infinite' }} />
+                    </div>
+
+                    {/* Swipe hint */}
+                    <div className="absolute z-30 flex items-center gap-1 text-white/80"
+                        style={{ top: 'calc(100svh - 36px)', left: '50%', transform: 'translateX(-50%)' }}>
+                        <span className="text-xs font-[crayon] tracking-widest drop-shadow whitespace-nowrap">swipe cards →</span>
+                    </div>
+
+                    {/* Cards strip — sama persis kayak desktop (overlap fan) tapi swipeable */}
+                    <div
+                        className="absolute left-0 right-0 flex overflow-x-auto no-scrollbar z-20"
+                        style={{
+                            top: 'calc(100svh - 100px)',
+                            paddingLeft: '5vw',
+                            paddingRight: '5vw',
+                            paddingBottom: '24px',
+                            WebkitOverflowScrolling: 'touch',
+                            height: 'calc(100svh - 100px)',
+                        }}
+                    >
+                        {projects.map((project, index) => {
+                            const rotationClass = index % 2 === 0 ? '-rotate-6' : 'rotate-6';
+                            const yOffsetClass = index % 2 === 0 ? 'translate-y-3' : '-translate-y-3';
+
+                            return (
+                                <div
+                                    key={project.id}
+                                    className={`shrink-0 ${index !== 0 ? '-ml-14' : ''}`}
+                                >
+                                    <div
+                                        onClick={() => setSelectedProject(project)}
+                                        className={`project-card relative bg-[#F4F1EA] shadow-2xl top-10 p-3 flex flex-col cursor-pointer rounded-sm transition-all duration-300 ease-in active:scale-110 active:z-50 ${rotationClass} ${yOffsetClass}`}
+                                        style={{ width: '68vw', height: '68vw' }}
+                                    >
+                                        {/* Image — 70% */}
+                                        <div className="w-full relative overflow-hidden rounded-t-sm" style={{ height: '70%' }}>
+                                            {!loadedImages[project.id] && (
+                                                <div className="absolute inset-0 bg-[#e8e5dd] animate-pulse" />
+                                            )}
+                                            <img
+                                                src={project.imageUrl}
+                                                alt={project.title}
+                                                className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'
+                                                    }`}
+                                                onLoad={() => handleImageLoad(project.id)}
+                                            />
+                                        </div>
+                                        {/* Info — 30% */}
+                                        <div className="w-full flex flex-col justify-center" style={{ height: '30%' }}>
+                                            <h3 className="text-xs font-[crayon] text-[#2E8E37] uppercase leading-none tracking-wide">
+                                                {project.title}
+                                            </h3>
+                                            <div className="flex flex-wrap gap-1 mt-1">
+                                                {project.tech.slice(0, 2).map((t, i) => (
+                                                    <span
+                                                        key={i}
+                                                        className="text-[7px] px-1 py-0.5 bg-[#2E8E37] text-[#F7DF19] rounded-full font-[crayon]"
+                                                    >
+                                                        {t}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </section>
+
+                <ProjectModal
+                    project={selectedProject}
+                    onClose={() => setSelectedProject(null)}
+                />
+            </>
+        );
+    }
+
+    // ── DESKTOP: GSAP horizontal scroll ──────────────────────────────────────
     return (
         <>
             <section
@@ -96,7 +218,7 @@ const Projects = () => {
             >
                 <div
                     ref={stickyRef}
-                    className={`${isMobile ? 'relative' : 'sticky top-0'} left-0 w-full overflow-visible`}
+                    className="sticky top-0 left-0 w-full overflow-visible"
                     style={{ height: `${PANEL_HEIGHT}px` }}
                 >
                     {/* Background pantai */}
@@ -111,32 +233,27 @@ const Projects = () => {
                     <img
                         src="/project.svg"
                         alt="Projects"
-                        className={`project-title-img absolute ${isMobile ? 'top-[350px] w-[90%]' : 'top-20 w-[70%]'} left-1/2 -translate-x-1/2 z-10 pointer-events-none`}
+                        className="project-title-img absolute top-20 w-[70%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
                     />
 
                     {/* Doodle burung */}
                     <div className="project-doodle absolute left-70 top-40 z-20">
-                        <img src="/burung 1.svg" alt="burung" className="w-20" style={{ animation: "float 1.5s ease-in-out infinite" }} />
+                        <img src="/burung 1.svg" alt="burung" className="w-20" style={{ animation: 'float 1.5s ease-in-out infinite' }} />
                     </div>
                     <div className="project-doodle absolute left-20 top-20 z-20">
-                        <img src="/burung 1.svg" alt="burung" className="w-20" style={{ animation: "float 1.5s ease-in-out infinite" }} />
+                        <img src="/burung 1.svg" alt="burung" className="w-20" style={{ animation: 'float 1.5s ease-in-out infinite' }} />
                     </div>
                     <div className="project-doodle absolute right-70 top-40 z-20">
-                        <img src="/burung 2.svg" alt="burung" className="w-20" style={{ animation: "float 2.5s ease-in-out infinite" }} />
+                        <img src="/burung 2.svg" alt="burung" className="w-20" style={{ animation: 'float 2.5s ease-in-out infinite' }} />
                     </div>
                     <div className="project-doodle absolute right-25 top-20 z-20">
-                        <img src="/burung 3.svg" alt="burung" className="w-20" style={{ animation: "float 3s ease-in-out infinite" }} />
+                        <img src="/burung 3.svg" alt="burung" className="w-20" style={{ animation: 'float 3s ease-in-out infinite' }} />
                     </div>
 
                     {/* Horizontal scroll panels */}
                     <div
-                        className={`project-wrapper flex h-full ${isMobile ? 'pl-[5vw] pr-[5vw] overflow-x-auto snap-x snap-mandatory hide-scrollbar' : 'pl-[10vw] pr-[20vw]'}`}
-                        style={{
-                            width: isMobile ? '100%' : 'max-content',
-                            paddingTop: isMobile ? '80%' : '350px',
-                            scrollbarWidth: 'none',
-                            msOverflowStyle: 'none'
-                        }}
+                        className="project-wrapper flex h-full pl-[10vw] pr-[20vw]"
+                        style={{ width: 'max-content', paddingTop: '350px' }}
                     >
                         {projects.map((project, index) => {
                             const rotationClass = index % 2 === 0 ? '-rotate-6' : 'rotate-6';
@@ -145,37 +262,35 @@ const Projects = () => {
                             return (
                                 <div
                                     key={project.id}
-                                    className={`project-panel shrink-0 flex flex-col justify-start items-center bottom-24 relative ${isMobile ? 'snap-center mx-3' : 'pt-3 ' + (index !== 0 ? '-ml-24' : '')}`}
+                                    className={`project-panel shrink-0 flex flex-col justify-start items-center bottom-24 relative pt-3 ${index !== 0 ? '-ml-24' : ''
+                                        }`}
                                 >
                                     <div
                                         onClick={() => setSelectedProject(project)}
-                                        className={`project-card relative ${isSmallMobile ? 'w-[300px]' : isMobile ? 'w-[340px]' : 'w-[350px]'} bg-[#F4F1EA] shadow-2xl p-4 flex flex-col hover:scale-110 hover:z-50 ${rotationClass} ${yOffsetClass} cursor-pointer rounded-sm transition-all duration-300`}
-                                        style={{ height: isSmallMobile ? '390px' : isMobile ? '430px' : '350px' }}
+                                        className={`project-card relative w-[350px] bg-[#F4F1EA] shadow-2xl p-4 flex flex-col hover:scale-110 hover:z-50 ${rotationClass} ${yOffsetClass} cursor-pointer rounded-sm transition-all duration-300`}
+                                        style={{ height: '350px' }}
                                     >
-                                        {/* Image - 70% tinggi card */}
                                         <div className="w-full relative overflow-hidden rounded-t-sm" style={{ height: '70%' }}>
-                                            {/* Placeholder shimmer */}
                                             {!loadedImages[project.id] && (
                                                 <div className="absolute inset-0 bg-[#e8e5dd] animate-pulse" />
                                             )}
                                             <img
                                                 src={project.imageUrl}
                                                 alt={project.title}
-                                                className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'}`}
+                                                className={`w-full h-full object-cover transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'
+                                                    }`}
                                                 onLoad={() => handleImageLoad(project.id)}
                                             />
                                         </div>
-
-                                        {/* Bottom - 30% tinggi card */}
                                         <div className="w-full flex flex-col justify-center" style={{ height: '30%' }}>
-                                            <h3 className={`${isSmallMobile ? 'text-base' : isMobile ? 'text-lg' : 'text-3xl'} font-[crayon] text-[#2E8E37] uppercase leading-none tracking-wide`}>
+                                            <h3 className="text-3xl font-[crayon] text-[#2E8E37] uppercase leading-none tracking-wide">
                                                 {project.title}
                                             </h3>
                                             <div className="flex flex-wrap gap-1.5 mt-1.5">
                                                 {project.tech.slice(0, 3).map((t, i) => (
                                                     <span
                                                         key={i}
-                                                        className={`${isSmallMobile ? 'text-[9px] px-1.5 py-0.5' : 'text-[11px] px-2 py-0.5'} bg-[#2E8E37] text-[#F7DF19] rounded-full font-[crayon]`}
+                                                        className="text-[11px] px-2 py-0.5 bg-[#2E8E37] text-[#F7DF19] rounded-full font-[crayon]"
                                                     >
                                                         {t}
                                                     </span>

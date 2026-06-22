@@ -104,7 +104,7 @@ export default function Experience() {
             <img
                 src="/bgexp.svg"
                 alt=""
-                className="absolute exp-bg z-8 bottom-180"
+                className="absolute exp-bg z-8 bottom-190"
                 style={{
                     width: "100%",
                     height: "100%",
@@ -135,7 +135,7 @@ export default function Experience() {
                 {/* PKKMB - Staff DDMIT */}
                 <div className="relative exp-item flex items-center bottom-140">
                     <img src="/pkkmb.svg" alt="PKKMB" className="relative -right-133 bottom-90 w-110 z-10" />
-                    <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -right-110 bottom-30">
+                    <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -right-12`0 bottom-30">
                         Staff<br />DDMIT<br />PKKMB
                     </p>
 

@@ -80,7 +80,7 @@ export default function Skill() {
             <img
                 src="/bg3.svg"
                 alt=""
-                className="absolute -top-1 z-0"
+                className="absolute -top-15 z-0"
                 style={{
                     width: "100%",
                     height: "100%",

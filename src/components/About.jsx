@@ -100,10 +100,10 @@ export default function About() {
     }, { scope: container });
 
     return (
-        <section id="about" ref={container} className="relative z-0 w-full min-h-screen bg-[#2E8E37] md:-mt-70">
+        <section id="about" ref={container} className="relative z-0 w-full md:min-h-screen bg-[#2E8E37] md:-mt-70">
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col md:flex-row w-full h-full min-h-screen px-6 md:px-10 py-20">
+            <div className="relative z-10 flex flex-col md:flex-row w-full md:h-full md:min-h-screen px-6 md:px-10 py-14 md:py-20">
 
                 {/* Kiri / Atas (mobile) - Judul + Foto */}
                 <div className="flex flex-col w-full md:w-1/2">

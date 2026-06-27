@@ -118,17 +118,17 @@ export default function Skill() {
     }, { scope: container });
 
     return (
-        <section id="skills" ref={container} className="relative z-10 w-full min-h-screen md:-mt-35">
-            {/* Background SVG */}
+        <section id="skills" ref={container} className="relative z-10 w-full md:min-h-screen md:-mt-35 bg-[#F4F1EA] md:bg-transparent">
+            {/* Background SVG — desktop only (overflows awkwardly on mobile) */}
             <img
                 src="/bg3.svg"
                 alt=""
-                className="absolute -top-15 z-0"
+                className="absolute -top-15 z-0 hidden md:block"
                 style={{ width: "100%", height: "100%", minHeight: "210%", objectFit: "fill" }}
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col w-full min-h-screen px-6 md:px-10 py-20">
+            <div className="relative z-10 flex flex-col w-full md:min-h-screen px-6 md:px-10 py-14 md:py-20">
 
                 {/* Mobile — grid icons */}
                 <div className="md:hidden flex flex-col items-center gap-8 pt-10">

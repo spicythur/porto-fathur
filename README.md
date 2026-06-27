@@ -1,16 +1,31 @@
-# React + Vite
+# Porto Fathur
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website with a playful beach/tropical vibe. Built with smooth animations, draggable skill icons, and polaroid-style project cards.
 
-Currently, two official plugins are available:
+**Live**: [porto-fathur.vercel.app](https://porto-fathur.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- React + Vite
+- Tailwind CSS
+- GSAP (ScrollTrigger, SplitText, Draggable)
+- Lenis Smooth Scroll
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- GSAP-powered scroll animations & text reveals
+- Draggable skill icons (desktop)
+- Polaroid-style project cards with hover effects
+- Smooth scrolling via Lenis
+- Responsive layout
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+Made by [Fathur](https://porto-fathur.vercel.app)

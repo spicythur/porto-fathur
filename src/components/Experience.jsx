@@ -115,7 +115,7 @@ export default function Experience() {
             <img
                 src="/exp.svg"
                 alt="Experience"
-                className="exp-title relative z-10 w-[50%] mx-auto top-10 pt-8"
+                className="exp-title relative z-10 w-[50%] mx-auto top-8 pt-8"
             />
 
             {/* Area scattered items — flow layout */}
@@ -135,7 +135,7 @@ export default function Experience() {
                 {/* PKKMB - Staff DDMIT */}
                 <div className="relative exp-item flex items-center bottom-140">
                     <img src="/pkkmb.svg" alt="PKKMB" className="relative -right-133 bottom-90 w-110 z-10" />
-                    <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -right-12`0 bottom-30">
+                    <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -right-120 bottom-30">
                         Staff<br />DDMIT<br />PKKMB
                     </p>
 
@@ -150,18 +150,18 @@ export default function Experience() {
                     <p className="relative text-[#F7DF19] text-[32px] font-[crayon] mt-2 tracking-[0.5em] -left-130 bottom-50">
                         Internship
                     </p>
-                 </div>
+                </div>
 
                 {/* PROVOKS - Enforcer Event */}
                 <div className="relative exp-item items-center -top-270 -right-100">
-                   
+
                     <img src="/reborn.png" alt="Provoks Enforcer" className="relative w-150 object-contain" />
                     <img src="/Provoks.svg" alt="Provoks" className="relative bottom-70 w-120 right-40 rotate-[19deg]" />
                     <p className="relative text-[#F7DF19] font-[crayon] text-[32px] tracking-[0.5em] bottom-108 left-10 ">
                         Enforcer Event
                     </p>
-                   
-                   
+
+
                 </div>
 
                 {/* Doodle panah */}

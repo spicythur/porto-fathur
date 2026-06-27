@@ -5,7 +5,8 @@
       "Bash(Remove-Item *)",
       "Bash(npm cache *)",
       "Bash(rm -rf /tmp/*)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(gh api *)"
     ]
   }
 }

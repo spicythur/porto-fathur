@@ -76,9 +76,9 @@ export default function Hero() {
                 alt=""
                 className="hero-bg absolute -top-20"
                 style={{
-                    width: "140%",
-                    height: "140%",
-                    objectFit: "fill"
+                    width: "120%",
+                    height: "120%",
+                    objectFit: "contain"
                 }}
             />
             {/* Teks Porto Folio — wrapper (scrub) > img (float) */}

@@ -96,7 +96,7 @@ export default function Contact() {
             <img
                 src="/bb-contact.svg"
                 alt=""
-                className="contact-bg absolute top-10 left-0"
+                className="contact-bg absolute top-18 left-0"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
 

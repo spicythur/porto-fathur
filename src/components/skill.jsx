@@ -2,7 +2,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Skill() {
@@ -150,7 +149,8 @@ export default function Skill() {
                     <img
                         src="/fathur2.svg"
                         alt="Fathur"
-                        className="skill-photo absolute -bottom-230 left-1/3 -translate-x-1/2 h-[170%] object-cover mb-10 pointer-events-none"
+                        className="skill-photo absolute -bottom-230 -
+                        translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
                     />
 
                 </div>

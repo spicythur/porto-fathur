@@ -118,7 +118,7 @@ export default function Skill() {
     }, { scope: container });
 
     return (
-        <section id="skills" ref={container} className="relative z-10 w-full min-h-screen -mt-35">
+        <section id="skills" ref={container} className="relative z-10 w-full min-h-screen md:-mt-35">
             {/* Background SVG */}
             <img
                 src="/bg3.svg"

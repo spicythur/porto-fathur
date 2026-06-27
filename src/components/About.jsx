@@ -100,7 +100,7 @@ export default function About() {
     }, { scope: container });
 
     return (
-        <section id="about" ref={container} className="relative z-0 w-full min-h-screen bg-[#2E8E37] -mt-70">
+        <section id="about" ref={container} className="relative z-0 w-full min-h-screen bg-[#2E8E37] md:-mt-70">
 
             {/* Konten */}
             <div className="relative z-10 flex flex-col md:flex-row w-full h-full min-h-screen px-6 md:px-10 py-20">

@@ -139,7 +139,7 @@ const Projects = () => {
             <>
                 <section
                     id="projects"
-                    className="relative w-full -mt-190"
+                    className="relative w-full"
                     style={{ height: '180svh' }}
                 >
                     {/* Beach image — 100svh */}

@@ -71,7 +71,7 @@ export default function App() {
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      <div style={{ zoom: scale, overflowX: 'hidden' }}>
+      <div style={{ zoom: scale }}>
         <NavBar />
         <Hero />
         <About />

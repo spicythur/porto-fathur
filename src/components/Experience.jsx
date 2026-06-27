@@ -123,7 +123,7 @@ export default function Experience() {
 
                 {/* PROVOKS - Multimedia & Event */}
                 <div className="relative exp-item items-center left-13">
-                    <img src="/propok.png" alt="Provoks Multimedia" className="relative w-145 h-auto object-contain right-98" />
+                    <img src="/propok.webp" alt="Provoks Multimedia" className="relative w-145 h-auto object-contain right-98" />
                     <div>
                         <img src="/Provoks.svg" alt="Provoks" className="relative -left-100 -top-55 w-120" />
                         <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -top-170 left-50 ">
@@ -139,12 +139,12 @@ export default function Experience() {
                         Staff<br />DDMIT<br />PKKMB
                     </p>
 
-                    <img src="/yuwa.png" alt="PKKMB" className="relative bottom-26 h-130 w-auto object-contain z-1" />
+                    <img src="/yuwa.webp" alt="PKKMB" className="relative bottom-26 h-130 w-auto object-contain z-1" />
                 </div>
 
                 {/* PSIK - Internship */}
                 <div className="relative exp-item flex items-center bottom-200 right-15">
-                    <img src="/magang.png" alt="PSIK" className="relative w-130 object-contain" />
+                    <img src="/magang.webp" alt="PSIK" className="relative w-130 object-contain" />
 
                     <img src="/psik.svg" alt="PSIK" className="relative h-120 right-150" />
                     <p className="relative text-[#F7DF19] text-[32px] font-[crayon] mt-2 tracking-[0.5em] -left-130 bottom-50">
@@ -155,7 +155,7 @@ export default function Experience() {
                 {/* PROVOKS - Enforcer Event */}
                 <div className="relative exp-item items-center -top-270 -right-100">
 
-                    <img src="/reborn.png" alt="Provoks Enforcer" className="relative w-150 object-contain" />
+                    <img src="/reborn.webp" alt="Provoks Enforcer" className="relative w-150 object-contain" />
                     <img src="/Provoks.svg" alt="Provoks" className="relative bottom-70 w-120 right-40 rotate-[19deg]" />
                     <p className="relative text-[#F7DF19] font-[crayon] text-[32px] tracking-[0.5em] bottom-108 left-10 ">
                         Enforcer Event

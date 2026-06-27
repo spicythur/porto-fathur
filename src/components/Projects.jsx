@@ -10,7 +10,7 @@ const projects = [
     {
         id: 1,
         title: 'Porto Fathur',
-        imageUrl: '/project/porto.png',
+        imageUrl: '/project/porto.webp',
         description: 'Personal portfolio website with creative GSAP scroll animations and smooth UI. Built with React, Tailwind CSS, and Lenis.',
         tech: ['React', 'Tailwind', 'GSAP'],
         liveUrl: 'https://porto-fathur.vercel.app',
@@ -19,7 +19,7 @@ const projects = [
     {
         id: 2,
         title: 'Fusion AI',
-        imageUrl: '/project/Fusion.png',
+        imageUrl: '/project/Fusion.webp',
         description: 'AI-powered text-to-3D model generator for Autodesk Fusion 360. Create gears, brackets, and drone frames from natural language prompts.',
         tech: ['TypeScript', 'Express', 'React'],
         liveUrl: null,
@@ -28,7 +28,7 @@ const projects = [
     {
         id: 3,
         title: 'Purvo',
-        imageUrl: '/project/Purvo.png',
+        imageUrl: '/project/Purvo.webp',
         description: 'Bilingual (EN/ID) brand landing page with GSAP scroll animations, showcase, and story sections.',
         tech: ['React', 'Vite', 'GSAP'],
         liveUrl: 'https://lepurvo.vercel.app/',
@@ -37,23 +37,23 @@ const projects = [
     {
         id: 4,
         title: 'Shima Gold',
-        imageUrl: '/project/ShimaGold.png',
+        imageUrl: '/project/ShimaGold.webp',
         description: 'Elegant landing page for Shima Gold, a gold jewelry brand. Built with vanilla HTML, CSS, and JavaScript.',
         tech: ['HTML', 'CSS', 'JavaScript'],
         liveUrl: 'https://shima-gold-website.vercel.app',
         githubUrl: 'https://github.com/spicythur/shima-gold-website',
     },
-    { id: 15, title: 'Plantropic', imageUrl: '/project/Plantropic.png', description: 'B2B SaaS platform for real-time industrial water monitoring, ESG data management, and carbon footprint analytics.', tech: ['TypeScript', 'Next.js', 'Tailwind'], liveUrl: 'https://plantropic-b2-b-industrial-water-ma.vercel.app/', githubUrl: 'https://github.com/darariaisy12/-Plantropic-B2B-Industrial-Water-Management-SaaS-' },
-    { id: 5,  title: 'Project 05', imageUrl: '/project/Hasil1.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 6,  title: 'Project 06', imageUrl: '/project/Hasil2.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 7,  title: 'Project 07', imageUrl: '/project/Hasil3.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 8,  title: 'Project 08', imageUrl: '/project/Hasil4.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 9,  title: 'Project 09', imageUrl: '/project/Hasil5.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 10, title: 'Project 10', imageUrl: '/project/Hasil6.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 11, title: 'Project 11', imageUrl: '/project/Hasil7.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 12, title: 'Project 12', imageUrl: '/project/Hasil8.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 13, title: 'Project 13', imageUrl: '/project/Hasil9.png',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
-    { id: 14, title: 'Project 14', imageUrl: '/project/Hasil10.png', description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 15, title: 'Plantropic', imageUrl: '/project/Plantropic.webp', description: 'B2B SaaS platform for real-time industrial water monitoring, ESG data management, and carbon footprint analytics.', tech: ['TypeScript', 'Next.js', 'Tailwind'], liveUrl: 'https://plantropic-b2-b-industrial-water-ma.vercel.app/', githubUrl: 'https://github.com/darariaisy12/-Plantropic-B2B-Industrial-Water-Management-SaaS-' },
+    { id: 5,  title: 'Project 05', imageUrl: '/project/Hasil1.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 6,  title: 'Project 06', imageUrl: '/project/Hasil2.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 7,  title: 'Project 07', imageUrl: '/project/Hasil3.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 8,  title: 'Project 08', imageUrl: '/project/Hasil4.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 9,  title: 'Project 09', imageUrl: '/project/Hasil5.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 10, title: 'Project 10', imageUrl: '/project/Hasil6.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 11, title: 'Project 11', imageUrl: '/project/Hasil7.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 12, title: 'Project 12', imageUrl: '/project/Hasil8.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 13, title: 'Project 13', imageUrl: '/project/Hasil9.webp',  description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
+    { id: 14, title: 'Project 14', imageUrl: '/project/Hasil10.webp', description: 'Visual design project crafted with Adobe Illustrator.', tech: ['Adobe Illustrator'], liveUrl: null, githubUrl: null },
 ];
 
 const PANEL_WIDTH = 1000;
@@ -144,7 +144,7 @@ const Projects = () => {
                 >
                     {/* Beach image — 100svh */}
                     <img
-                        src="/pantai.jpg"
+                        src="/pantai.webp"
                         alt=""
                         className="absolute inset-0 w-full h-full object-cover pointer-events-none top-15"
                     />
@@ -266,7 +266,7 @@ const Projects = () => {
                 >
                     {/* Background pantai */}
                     <img
-                        src="/pantai.jpg"
+                        src="/pantai.webp"
                         alt=""
                         className="absolute left-0 w-full object-cover pointer-events-none"
                         style={{ height: `${PANEL_HEIGHT}px` }}

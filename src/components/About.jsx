@@ -147,7 +147,7 @@ export default function About() {
             </div>
 
             <img
-                src="/bawah.png"
+                src="/bawah.webp"
                 alt="bawah"
                 className="absolute -bottom-20 left-0 w-full z-20 object-scale-down pointer-events-none"
             />

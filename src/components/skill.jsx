@@ -128,56 +128,72 @@ export default function Skill() {
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col w-full min-h-screen px-10 py-20">
+            <div className="relative z-10 flex flex-col w-full min-h-screen px-6 md:px-10 py-20">
 
-                {/* Area tengah — icon + foto */}
-                <div className="relative flex items-center justify-center w-full mt-10" style={{ height: "600px" }}>
+                {/* Mobile — grid icons */}
+                <div className="md:hidden flex flex-col items-center gap-8 pt-10">
+                    <img src="/skill.svg" alt="My Skill" className="skill-title w-[70%]" />
+                    <div className="grid grid-cols-3 gap-6 w-full max-w-xs">
+                        {SKILLS.map((skill) => (
+                            <div key={skill.alt} className="flex flex-col items-center gap-2">
+                                <img
+                                    src={skill.src}
+                                    alt={skill.alt}
+                                    className="w-16 h-16 object-contain"
+                                    style={{ animation: `float ${skill.dur} ease-in-out infinite ${skill.delay}` }}
+                                />
+                                <span className="font-[crayon] text-[#2E8E37] text-sm">{skill.alt}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <img src="/fathur2.svg" alt="Fathur" className="w-[70%] object-contain pointer-events-none mt-4" />
+                </div>
 
-                    {/* Teks My Skill */}
-                    <img
-                        src="/skill.svg"
-                        alt="My Skill"
-                        className="skill-title w-[30%] -ml-230 -mt-10"
-                    />
+                {/* Desktop — floating draggable icons */}
+                <div className="hidden md:block relative">
+                    <div className="relative flex items-center justify-center w-full mt-10" style={{ height: "600px" }}>
 
-                    {/* Skill icons — draggable */}
-                    {SKILLS.map((skill, index) => (
-                        <div
-                            key={skill.alt}
-                            ref={el => { iconRefs.current[index] = el; }}
-                            className="absolute"
-                            style={{ cursor: 'grab', zIndex: 20, touchAction: 'none', ...skill.style }}
-                        >
-                            <img
-                                src={skill.src}
-                                alt={skill.alt}
-                                className={skill.w}
-                                style={{ animation: `float ${skill.dur} ease-in-out infinite ${skill.delay}`, pointerEvents: 'none' }}
-                            />
+                        <img
+                            src="/skill.svg"
+                            alt="My Skill"
+                            className="skill-title w-[30%] -ml-230 -mt-10"
+                        />
+
+                        {SKILLS.map((skill, index) => (
+                            <div
+                                key={skill.alt}
+                                ref={el => { iconRefs.current[index] = el; }}
+                                className="absolute"
+                                style={{ cursor: 'grab', zIndex: 20, touchAction: 'none', ...skill.style }}
+                            >
+                                <img
+                                    src={skill.src}
+                                    alt={skill.alt}
+                                    className={skill.w}
+                                    style={{ animation: `float ${skill.dur} ease-in-out infinite ${skill.delay}`, pointerEvents: 'none' }}
+                                />
+                            </div>
+                        ))}
+
+                        <div className="skill-doodle absolute left-40 top-120 rotate-45">
+                            <img src="/ikan.svg" alt="ikan" className="w-30" style={{ animation: "float 2s ease-in-out infinite" }} />
                         </div>
-                    ))}
+                        <div className="skill-doodle absolute right-70 bottom-30 rotate-120">
+                            <img src="/ikan.svg" alt="ikan" className="w-20" style={{ animation: "float 7s ease-out infinite" }} />
+                        </div>
+                        <div className="skill-doodle absolute right-10 -bottom-10 rotate-270">
+                            <img src="/ikan.svg" alt="ikan" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />
+                        </div>
+                        <div className="skill-doodle absolute right-25 bottom-40">
+                            <img src="/kapal.svg" alt="kapal" className="w-60" style={{ animation: "float 7s ease-out infinite" }} />
+                        </div>
 
-                    {/* Doodles — dekoratif, tidak draggable */}
-                    <div className="skill-doodle absolute left-40 top-120 rotate-45">
-                        <img src="/ikan.svg" alt="ikan" className="w-30" style={{ animation: "float 2s ease-in-out infinite" }} />
+                        <img
+                            src="/fathur2.svg"
+                            alt="Fathur"
+                            className="skill-photo absolute -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
+                        />
                     </div>
-                    <div className="skill-doodle absolute right-70 bottom-30 rotate-120">
-                        <img src="/ikan.svg" alt="ikan" className="w-20" style={{ animation: "float 7s ease-out infinite" }} />
-                    </div>
-                    <div className="skill-doodle absolute right-10 -bottom-10 rotate-270">
-                        <img src="/ikan.svg" alt="ikan" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />
-                    </div>
-                    <div className="skill-doodle absolute right-25 bottom-40">
-                        <img src="/kapal.svg" alt="kapal" className="w-60" style={{ animation: "float 7s ease-out infinite" }} />
-                    </div>
-
-                    {/* Foto Fathur */}
-                    <img
-                        src="/fathur2.svg"
-                        alt="Fathur"
-                        className="skill-photo absolute -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
-                    />
-
                 </div>
             </div>
         </section>

@@ -105,17 +105,17 @@ export default function Contact() {
 
                 {/* Judul */}
                 <h2
-                    className="contact-item text-7xl text-[#F7DF19]"
+                    className="contact-item text-5xl md:text-7xl text-[#F7DF19] text-center"
                     style={{ fontFamily: "crayon, sans-serif" }}
                 >
                     Contact Me!
                 </h2>
 
                 {/* Email & Phone */}
-                <p className="contact-item text-[#F7DF19] font-bold text-xl tracking-widest">
+                <p className="contact-item text-[#F7DF19] font-bold text-sm md:text-xl tracking-widest text-center px-4">
                     RIFAAIFATHUR@GMAIL.COM
                 </p>
-                <p className="contact-item text-[#F7DF19] font-bold text-xl tracking-widest">
+                <p className="contact-item text-[#F7DF19] font-bold text-sm md:text-xl tracking-widest text-center">
                     +62 851 5832 9255
                 </p>
 

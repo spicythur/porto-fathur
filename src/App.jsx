@@ -51,9 +51,9 @@ export default function App() {
       });
     }
 
-    // 2. Setup Zoom Responsiveness
+    // 2. Setup Zoom Responsiveness — desktop only
     const handleResize = () => {
-      setScale(window.innerWidth / 1440);
+      setScale(window.innerWidth >= 768 ? window.innerWidth / 1440 : 1);
     };
 
     window.addEventListener("resize", handleResize);
@@ -71,7 +71,7 @@ export default function App() {
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       
-      <div style={{ zoom: scale }}>
+      <div style={{ zoom: scale, overflowX: 'hidden' }}>
         <NavBar />
         <Hero />
         <About />

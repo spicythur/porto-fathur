@@ -98,81 +98,83 @@ export default function Experience() {
     }, { scope: container });
 
     return (
-        <section id="experience" ref={container} className="relative pb-10 bg-white top-195">
+        <section id="experience" ref={container} className="relative pb-10 bg-white md:top-195">
 
             {/* Background SVG (parallax layer) */}
             <img
                 src="/bgexp.svg"
                 alt=""
-                className="absolute exp-bg z-8 bottom-190"
-                style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "fill"
-                }}
+                className="absolute exp-bg z-8 bottom-190 hidden md:block"
+                style={{ width: "100%", height: "100%", objectFit: "fill" }}
             />
+
             {/* Judul Experience */}
             <img
                 src="/exp.svg"
                 alt="Experience"
-                className="exp-title relative z-10 w-[50%] mx-auto top-8 pt-8"
+                className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-8 pt-8"
             />
 
-            {/* Area scattered items — flow layout */}
-            <div className="relative z-10 w-full mt-5 flex flex-col items-center pb-10">
-
-                {/* PROVOKS - Multimedia & Event */}
-                <div className="relative exp-item items-center left-13">
-                    <img src="/propok.webp" alt="Provoks Multimedia" className="relative w-145 h-auto object-contain right-98" />
-                    <div>
-                        <img src="/Provoks.svg" alt="Provoks" className="relative -left-100 -top-55 w-120" />
-                        <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -top-170 left-50 ">
-                            Multi<br /> media<br /> and<br />Event
-                        </p>
+            {/* Mobile — stacked cards */}
+            <div className="md:hidden flex flex-col gap-6 px-6 pt-10 pb-16">
+                {[
+                    { img: '/propok.webp', logo: '/Provoks.svg', role: 'Multimedia & Event', alt: 'Provoks' },
+                    { img: '/yuwa.webp',   logo: '/pkkmb.svg',   role: 'Staff DDMIT PKKMB', alt: 'PKKMB' },
+                    { img: '/magang.webp', logo: '/psik.svg',    role: 'Internship',         alt: 'PSIK' },
+                    { img: '/reborn.webp', logo: '/Provoks.svg', role: 'Enforcer Event',     alt: 'Provoks' },
+                ].map((item, i) => (
+                    <div key={i} className="exp-item bg-[#2E8E37] rounded-2xl overflow-hidden shadow-lg flex flex-col">
+                        <img src={item.img} alt={item.alt} className="w-full h-48 object-cover" />
+                        <div className="flex items-center gap-3 p-4">
+                            <img src={item.logo} alt={item.alt} className="w-12 h-12 object-contain shrink-0" />
+                            <p className="font-[crayon] text-[#F7DF19] text-2xl leading-tight">{item.role}</p>
+                        </div>
                     </div>
-                </div>
-
-                {/* PKKMB - Staff DDMIT */}
-                <div className="relative exp-item flex items-center bottom-140">
-                    <img src="/pkkmb.svg" alt="PKKMB" className="relative -right-133 bottom-90 w-110 z-10" />
-                    <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -right-120 bottom-30">
-                        Staff<br />DDMIT<br />PKKMB
-                    </p>
-
-                    <img src="/yuwa.webp" alt="PKKMB" className="relative bottom-26 h-130 w-auto object-contain z-1" />
-                </div>
-
-                {/* PSIK - Internship */}
-                <div className="relative exp-item flex items-center bottom-200 right-15">
-                    <img src="/magang.webp" alt="PSIK" className="relative w-130 object-contain" />
-
-                    <img src="/psik.svg" alt="PSIK" className="relative h-120 right-150" />
-                    <p className="relative text-[#F7DF19] text-[32px] font-[crayon] mt-2 tracking-[0.5em] -left-130 bottom-50">
-                        Internship
-                    </p>
-                </div>
-
-                {/* PROVOKS - Enforcer Event */}
-                <div className="relative exp-item items-center -top-270 -right-100">
-
-                    <img src="/reborn.webp" alt="Provoks Enforcer" className="relative w-150 object-contain" />
-                    <img src="/Provoks.svg" alt="Provoks" className="relative bottom-70 w-120 right-40 rotate-[19deg]" />
-                    <p className="relative text-[#F7DF19] font-[crayon] text-[32px] tracking-[0.5em] bottom-108 left-10 ">
-                        Enforcer Event
-                    </p>
-
-
-                </div>
-
-                {/* Doodle panah */}
-                <img
-                    src="/panah.svg"
-                    alt=""
-                    className="exp-doodle absolute top-20 left-72 w-16"
-                />
-
+                ))}
             </div>
 
-        </section >
+            {/* Desktop — scattered layout */}
+            <div className="hidden md:block relative z-10 w-full mt-5">
+                <div className="flex flex-col items-center pb-10">
+
+                    <div className="relative exp-item items-center left-13">
+                        <img src="/propok.webp" alt="Provoks Multimedia" className="relative w-145 h-auto object-contain right-98" />
+                        <div>
+                            <img src="/Provoks.svg" alt="Provoks" className="relative -left-100 -top-55 w-120" />
+                            <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -top-170 left-50">
+                                Multi<br />media<br />and<br />Event
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="relative exp-item flex items-center bottom-140">
+                        <img src="/pkkmb.svg" alt="PKKMB" className="relative -right-133 bottom-90 w-110 z-10" />
+                        <p className="relative text-[#F7DF19] text-[32px] font-[crayon] -right-120 bottom-30">
+                            Staff<br />DDMIT<br />PKKMB
+                        </p>
+                        <img src="/yuwa.webp" alt="PKKMB" className="relative bottom-26 h-130 w-auto object-contain z-1" />
+                    </div>
+
+                    <div className="relative exp-item flex items-center bottom-200 right-15">
+                        <img src="/magang.webp" alt="PSIK" className="relative w-130 object-contain" />
+                        <img src="/psik.svg" alt="PSIK" className="relative h-120 right-150" />
+                        <p className="relative text-[#F7DF19] text-[32px] font-[crayon] mt-2 tracking-[0.5em] -left-130 bottom-50">
+                            Internship
+                        </p>
+                    </div>
+
+                    <div className="relative exp-item items-center -top-270 -right-100">
+                        <img src="/reborn.webp" alt="Provoks Enforcer" className="relative w-150 object-contain" />
+                        <img src="/Provoks.svg" alt="Provoks" className="relative bottom-70 w-120 right-40 rotate-[19deg]" />
+                        <p className="relative text-[#F7DF19] font-[crayon] text-[32px] tracking-[0.5em] bottom-108 left-10">
+                            Enforcer Event
+                        </p>
+                    </div>
+
+                    <img src="/panah.svg" alt="" className="exp-doodle absolute top-20 left-72 w-16" />
+                </div>
+            </div>
+
+        </section>
     )
 }

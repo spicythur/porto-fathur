@@ -82,7 +82,7 @@ export default function Hero() {
                 }}
             />
             {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
-            <div className="hero-text absolute top-50 left-50 z-10 w-[45%]">
+            <div className="hero-text absolute top-1/3 left-4 md:top-50 md:left-50 z-10 w-[85%] md:w-[45%]">
                 <img
                     src="/teks-porto.svg"
                     alt="Porto Folio"

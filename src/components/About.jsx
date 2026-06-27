@@ -103,45 +103,42 @@ export default function About() {
         <section id="about" ref={container} className="relative z-0 w-full min-h-screen bg-[#2E8E37] -mt-70">
 
             {/* Konten */}
-            <div className="relative z-10 flex w-full h-full min-h-screen px-10 py-20">
+            <div className="relative z-10 flex flex-col md:flex-row w-full h-full min-h-screen px-6 md:px-10 py-20">
 
-                {/* Kiri - Judul + Foto */}
-                <div className="flex flex-col w-1/2">
+                {/* Kiri / Atas (mobile) - Judul + Foto */}
+                <div className="flex flex-col w-full md:w-1/2">
 
-                    {/* Teks About Me SVG */}
                     <img
                         src="/about.svg"
                         alt="About Me"
-                        className="about-title w-[90%] mt-40 ml-10 "
+                        className="about-title w-[70%] md:w-[90%] mt-16 md:mt-40 mx-auto md:ml-10"
                     />
 
-                    {/* Foto Fathur */}
                     <img
                         src="/fathur.svg"
                         alt="Fathur"
-                        className="about-photo w-full object-contain mt-0 ml-0 pointer-events-none"
+                        className="about-photo w-[70%] md:w-full object-contain mx-auto md:ml-0 pointer-events-none"
                     />
 
                 </div>
 
-                {/* Kanan - Deskripsi */}
-                <div className="flex flex-col w-1/2 justify-center gap-10 pt-20 mt-70">
+                {/* Kanan / Bawah (mobile) - Deskripsi */}
+                <div className="flex flex-col w-full md:w-1/2 justify-center gap-6 md:gap-10 pt-8 md:pt-20 md:mt-70 px-2 md:px-0">
 
-                    {/* Teks */}
-                    <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
-                        <span className="text-5xl">Hi!</span> I am Agus Fathurrahman Rifai usually called Fathur. I am an Information Technology student at Universitas Brawijaya, originally from Jakarta.
+                    <p className="about-text text-[#F7DF19] text-xl md:text-2xl leading-relaxed font-[crayon]">
+                        <span className="text-4xl md:text-5xl">Hi!</span> I am Agus Fathurrahman Rifai usually called Fathur. I am an Information Technology student at Universitas Brawijaya, originally from Jakarta.
                     </p>
-                    <p className="about-text text-[#F7DF19] text-2xl leading-relaxed font-[crayon]">
+                    <p className="about-text text-[#F7DF19] text-xl md:text-2xl leading-relaxed font-[crayon]">
                         And also I have a deep passion for bridging the gap between functionality and aesthetics through UI/UX Design and Graphic Design. Beyond visuals, I am also an enthusiast in coding, which allows me to understand.
                     </p>
 
                 </div>
 
-                {/* Doodle bunga */}
+                {/* Doodle bunga — sembunyikan di mobile */}
                 <img
                     src="/bunga.svg"
                     alt=""
-                    className="about-doodle w-40 self-end mb-190 -mr-10"
+                    className="about-doodle hidden md:block w-40 self-end mb-190 -mr-10"
                 />
 
             </div>

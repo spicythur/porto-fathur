@@ -132,9 +132,9 @@ export default function Contact() {
                 {/* Social icons */}
                 <div className="contact-item flex gap-4 mt-2">
                     {[
-                        { icon: <FaInstagram size={20} />, href: "https://www.instagram.com/tthuuur?igsh=N3RpeGo4MXR6dnR0&utm_source=qr" },
-                        { icon: <FaLinkedin size={20} />, href: "https://www.linkedin.com/in/agus-fathurrahman-rifai/" },
-                        { icon: <FaGithub size={20} />, href: "https://github.com/spicythur" }
+                        { icon: <FaInstagram size={20} aria-hidden="true" />, label: "Instagram", href: "https://www.instagram.com/tthuuur?igsh=N3RpeGo4MXR6dnR0&utm_source=qr" },
+                        { icon: <FaLinkedin size={20} aria-hidden="true" />, label: "LinkedIn", href: "https://www.linkedin.com/in/agus-fathurrahman-rifai/" },
+                        { icon: <FaGithub size={20} aria-hidden="true" />, label: "GitHub", href: "https://github.com/spicythur" }
                     ].map((item, i) => (
 
                         <a
@@ -142,6 +142,7 @@ export default function Contact() {
                             href={item.href}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={item.label}
                             className="w-10 h-10 rounded-full bg-[#F7DF19] flex items-center justify-center text-[#2E8E37] hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-all duration-300"
                         >
                             {item.icon}

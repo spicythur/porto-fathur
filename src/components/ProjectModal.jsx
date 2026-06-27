@@ -8,8 +8,8 @@ export default function ProjectModal({ project, projects, onClose, onSelect }) {
 
     const handleClose = useCallback(() => {
         const tl = gsap.timeline({ onComplete: onClose });
-        tl.to(cardRef.current, { y: 40, opacity: 0, scale: 0.95, duration: 0.25, ease: "power2.in" });
-        tl.to(overlayRef.current, { opacity: 0, duration: 0.2 }, "-=0.1");
+        tl.to(cardRef.current, { y: 24, opacity: 0, scale: 0.96, duration: 0.3, ease: "power2.inOut" });
+        tl.to(overlayRef.current, { opacity: 0, duration: 0.25 }, "-=0.15");
     }, [onClose]);
 
     const handleNavigate = useCallback((direction) => {
@@ -18,17 +18,18 @@ export default function ProjectModal({ project, projects, onClose, onSelect }) {
         const next = projects[idx + direction];
         if (!next) return;
 
-        const exitX = direction > 0 ? -80 : 80;
+        const exitX = direction > 0 ? -60 : 60;
         gsap.to(cardRef.current, {
             x: exitX,
             opacity: 0,
-            duration: 0.18,
+            scale: 0.96,
+            duration: 0.22,
             ease: "power2.in",
             onComplete: () => {
                 onSelect(next);
                 gsap.fromTo(cardRef.current,
-                    { x: -exitX, opacity: 0 },
-                    { x: 0, opacity: 1, duration: 0.25, ease: "power2.out" }
+                    { x: -exitX, opacity: 0, scale: 0.96 },
+                    { x: 0, opacity: 1, scale: 1, duration: 0.32, ease: "power3.out" }
                 );
             }
         });
@@ -42,12 +43,12 @@ export default function ProjectModal({ project, projects, onClose, onSelect }) {
         const tl = gsap.timeline();
         tl.fromTo(overlayRef.current,
             { opacity: 0 },
-            { opacity: 1, duration: 0.3, ease: "power2.out" }
+            { opacity: 1, duration: 0.35, ease: "power2.out" }
         );
         tl.fromTo(cardRef.current,
-            { y: 80, opacity: 0, scale: 0.95 },
-            { y: 0, opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.5)" },
-            "-=0.15"
+            { y: 50, opacity: 0, scale: 0.93 },
+            { y: 0, opacity: 1, scale: 1, duration: 0.5, ease: "power4.out" },
+            "-=0.2"
         );
 
         const onKeyDown = (e) => {

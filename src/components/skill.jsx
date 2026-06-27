@@ -1,10 +1,13 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/Draggable";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, Draggable);
+
+// Lebar desain desktop — dipakai untuk scale layout floating di mobile
+const DESIGN_WIDTH = 1440;
 
 const SKILLS = [
     { src: '/illustrator.svg', alt: 'Illustrator', w: 'w-40', dur: '4s',   delay: '0s',   style: { top: '380px', left: '50%',  transform: 'translateX(-50%)' } },
@@ -21,6 +24,17 @@ const SKILLS = [
 export default function Skill() {
     const container = useRef();
     const iconRefs = useRef([]);
+
+    // Mobile: scale layout floating desktop agar muat (zoom mempengaruhi layout box)
+    const [mobileScale, setMobileScale] = useState(null);
+    useEffect(() => {
+        const update = () => {
+            setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
+        };
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
 
     useGSAP(() => {
         // Pop-in: skill icons (via refs)
@@ -130,27 +144,11 @@ export default function Skill() {
             {/* Konten */}
             <div className="relative z-10 flex flex-col w-full md:min-h-screen px-6 md:px-10 py-14 md:py-20">
 
-                {/* Mobile — grid icons */}
-                <div className="md:hidden flex flex-col items-center gap-8 pt-10">
-                    <img src="/skill.svg" alt="My Skill" className="skill-title w-[70%]" />
-                    <div className="grid grid-cols-3 gap-6 w-full max-w-xs">
-                        {SKILLS.map((skill) => (
-                            <div key={skill.alt} className="flex flex-col items-center gap-2">
-                                <img
-                                    src={skill.src}
-                                    alt={skill.alt}
-                                    className="w-16 h-16 object-contain"
-                                    style={{ animation: `float ${skill.dur} ease-in-out infinite ${skill.delay}` }}
-                                />
-                                <span className="font-[crayon] text-[#2E8E37] text-sm">{skill.alt}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <img src="/fathur2.svg" alt="Fathur" className="w-[70%] object-contain pointer-events-none mt-4" />
-                </div>
-
-                {/* Desktop — floating draggable icons */}
-                <div className="hidden md:block relative">
+                {/* Floating layout — desktop penuh, mobile di-scale agar muat */}
+                <div
+                    className="relative mx-auto"
+                    style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: "1650px", zoom: mobileScale } : { width: "100%" }}
+                >
                     <div className="relative flex items-center justify-center w-full mt-10" style={{ height: "600px" }}>
 
                         <img

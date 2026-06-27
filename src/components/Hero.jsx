@@ -74,12 +74,8 @@ export default function Hero() {
             <img
                 src="/bg4.svg"
                 alt=""
-                className="hero-bg absolute -top-20"
-                style={{
-                    width: "120%",
-                    height: "120%",
-                    objectFit: "contain"
-                }}
+                aria-hidden="true"
+                className="hero-bg absolute inset-0 md:-top-20 w-full md:w-[120%] h-full md:h-[120%] object-cover md:object-contain"
             />
             {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
             <div className="hero-text absolute top-[26%] left-[10%] md:top-50 md:left-50 z-10 w-[80%] md:w-[45%]">

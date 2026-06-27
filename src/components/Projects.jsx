@@ -140,7 +140,7 @@ const Projects = () => {
                 <section
                     id="projects"
                     className="relative w-full"
-                    style={{ height: '180svh' }}
+                    style={{ height: '120svh' }}
                 >
                     {/* Beach image — 100svh */}
                     <img
@@ -172,7 +172,7 @@ const Projects = () => {
 
                     {/* Swipe hint */}
                     <div className="absolute z-30 flex items-center gap-1 text-white/80"
-                        style={{ top: 'calc(100svh - 36px)', left: '50%', transform: 'translateX(-50%)' }}>
+                        style={{ top: '24%', left: '50%', transform: 'translateX(-50%)' }}>
                         <span className="text-xs font-[crayon] tracking-widest drop-shadow whitespace-nowrap">swipe cards →</span>
                     </div>
 
@@ -180,12 +180,12 @@ const Projects = () => {
                     <div
                         className="absolute left-0 right-0 flex overflow-x-auto no-scrollbar z-20"
                         style={{
-                            top: 'calc(100svh - 100px)',
+                            top: '30%',
                             paddingLeft: '5vw',
                             paddingRight: '5vw',
                             paddingBottom: '24px',
                             WebkitOverflowScrolling: 'touch',
-                            height: 'calc(100svh - 100px)',
+                            height: '62svh',
                         }}
                     >
                         {projects.map((project, index) => {

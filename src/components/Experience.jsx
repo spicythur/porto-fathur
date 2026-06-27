@@ -1,12 +1,26 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+// Lebar desain desktop — dipakai untuk scale layout scattered di mobile
+const DESIGN_WIDTH = 1440;
+
 export default function Experience() {
     const container = useRef();
+
+    // Mobile: scale layout scattered desktop agar muat (zoom mempengaruhi layout box)
+    const [mobileScale, setMobileScale] = useState(null);
+    useEffect(() => {
+        const update = () => {
+            setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
+        };
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
 
     useGSAP(() => {
         const isMobile = window.innerWidth < 768;
@@ -115,26 +129,11 @@ export default function Experience() {
                 className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-8 pt-8"
             />
 
-            {/* Mobile — stacked cards */}
-            <div className="md:hidden flex flex-col gap-6 px-6 pt-10 pb-16">
-                {[
-                    { img: '/propok.webp', logo: '/Provoks.svg', role: 'Multimedia & Event', alt: 'Provoks' },
-                    { img: '/yuwa.webp',   logo: '/pkkmb.svg',   role: 'Staff DDMIT PKKMB', alt: 'PKKMB' },
-                    { img: '/magang.webp', logo: '/psik.svg',    role: 'Internship',         alt: 'PSIK' },
-                    { img: '/reborn.webp', logo: '/Provoks.svg', role: 'Enforcer Event',     alt: 'Provoks' },
-                ].map((item, i) => (
-                    <div key={i} className="exp-item bg-[#2E8E37] rounded-2xl overflow-hidden shadow-lg flex flex-col">
-                        <img src={item.img} alt={item.alt} className="w-full h-48 object-cover" />
-                        <div className="flex items-center gap-3 p-4">
-                            <img src={item.logo} alt={item.alt} className="w-12 h-12 object-contain shrink-0" />
-                            <p className="font-[crayon] text-[#F7DF19] text-2xl leading-tight">{item.role}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            {/* Desktop — scattered layout */}
-            <div className="hidden md:block relative z-10 w-full mt-5">
+            {/* Scattered layout — desktop penuh, mobile di-scale agar muat */}
+            <div
+                className="relative z-10 mt-5 mx-auto"
+                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, zoom: mobileScale } : { width: "100%" }}
+            >
                 <div className="flex flex-col items-center pb-10">
 
                     <div className="relative exp-item items-center left-13">

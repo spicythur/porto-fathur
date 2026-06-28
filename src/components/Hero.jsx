@@ -83,7 +83,7 @@ export default function Hero() {
     }, { scope: container });
 
     return (
-        <section ref={container} className="relative z-10 w-full overflow-hidden md:h-screen">
+        <section ref={container} className="relative z-10 w-full overflow-x-clip md:h-screen">
 
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div

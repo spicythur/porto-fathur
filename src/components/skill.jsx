@@ -132,7 +132,7 @@ export default function Skill() {
     }, { scope: container });
 
     return (
-        <section id="skills" ref={container} className="relative z-10 w-full md:min-h-screen md:-mt-35 overflow-hidden md:overflow-visible">
+        <section id="skills" ref={container} className="relative z-10 w-full md:min-h-screen md:-mt-35 overflow-x-clip md:overflow-visible">
             {/* Background SVG — mobile: cover penuh, desktop: fill 210% */}
             <img
                 src="/bg3.svg"
@@ -142,7 +142,7 @@ export default function Skill() {
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col w-full md:min-h-screen px-6 md:px-10 py-14 md:py-20">
+            <div className="relative z-10 flex flex-col w-full md:min-h-screen px-0 md:px-10 py-14 md:py-20">
 
                 {/* Floating layout — desktop penuh, mobile di-scale agar muat */}
                 <div

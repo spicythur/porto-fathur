@@ -114,12 +114,12 @@ export default function Experience() {
     return (
         <section id="experience" ref={container} className="relative pb-10 bg-white md:top-195">
 
-            {/* Background SVG (parallax layer) */}
+            {/* Background SVG (parallax layer) — mobile: cover penuh, desktop: fill */}
             <img
                 src="/bgexp.svg"
                 alt=""
-                className="absolute exp-bg z-8 bottom-190 hidden md:block"
-                style={{ width: "100%", height: "100%", objectFit: "fill" }}
+                aria-hidden="true"
+                className="absolute exp-bg z-8 inset-0 md:inset-auto md:bottom-190 w-full h-full object-cover md:object-fill"
             />
 
             {/* Judul Experience */}

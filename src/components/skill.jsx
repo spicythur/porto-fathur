@@ -132,13 +132,13 @@ export default function Skill() {
     }, { scope: container });
 
     return (
-        <section id="skills" ref={container} className="relative z-10 w-full md:min-h-screen md:-mt-35 bg-[#F4F1EA] md:bg-transparent">
-            {/* Background SVG — desktop only (overflows awkwardly on mobile) */}
+        <section id="skills" ref={container} className="relative z-10 w-full md:min-h-screen md:-mt-35">
+            {/* Background SVG — mobile: cover penuh, desktop: fill 210% */}
             <img
                 src="/bg3.svg"
                 alt=""
-                className="absolute -top-15 z-0 hidden md:block"
-                style={{ width: "100%", height: "100%", minHeight: "210%", objectFit: "fill" }}
+                aria-hidden="true"
+                className="absolute inset-0 md:-top-15 z-0 w-full h-full object-cover md:object-fill md:min-h-[210%]"
             />
 
             {/* Konten */}

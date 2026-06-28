@@ -126,7 +126,7 @@ export default function Experience() {
             <img
                 src="/exp.svg"
                 alt="Experience"
-                className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-8 pt-8"
+                className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-1 md:top-8 pt-8"
             />
 
             {/* Scattered layout — desktop penuh, mobile di-scale agar muat */}

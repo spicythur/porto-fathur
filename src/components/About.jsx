@@ -117,7 +117,7 @@ export default function About() {
                     <img
                         src="/fathur.svg"
                         alt="Fathur"
-                        className="about-photo w-[72%] md:w-full object-contain mx-auto md:ml-0 -mt-2 md:mt-0 pointer-events-none"
+                        className="about-photo w-[72%] md:w-full object-contain mx-auto md:ml-0 -mt-8 md:mt-0 pointer-events-none"
                     />
 
                 </div>

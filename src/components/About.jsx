@@ -111,7 +111,7 @@ export default function About() {
                     <img
                         src="/about.svg"
                         alt="About Me"
-                        className="about-title w-[58%] md:w-[90%] mt-2 md:mt-40 mx-auto md:ml-10"
+                        className="about-title w-[45%] md:w-[90%] mt-10 md:mt-40 mx-auto md:ml-10"
                     />
 
                     <img
@@ -147,7 +147,7 @@ export default function About() {
             <img
                 src="/bawah.webp"
                 alt="bawah"
-                className="absolute bottom-0 md:-bottom-20 left-0 w-full z-20 object-scale-down pointer-events-none"
+                className="absolute -bottom-11 md:-bottom-20 left-0 w-full z-20 object-scale-down pointer-events-none"
             />
         </section>
     )

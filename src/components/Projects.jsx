@@ -154,7 +154,7 @@ const Projects = () => {
                     <img
                         src="/project.svg"
                         alt="Projects"
-                        className="absolute top-[7%] w-[52%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+                        className="absolute top-[7%] w-[60%] md:w-[52%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
                     />
 
                     {/* Doodle burung */}
@@ -173,7 +173,7 @@ const Projects = () => {
 
                     {/* Swipe hint */}
                     <div className="absolute z-30 flex items-center gap-1 text-white/80"
-                        style={{ top: '22%', left: '50%', transform: 'translateX(-50%)' }}>
+                        style={{ top: '26%', left: '50%', transform: 'translateX(-50%)' }}>
                         <span className="text-xs font-[crayon] tracking-widest drop-shadow whitespace-nowrap">swipe cards →</span>
                     </div>
 

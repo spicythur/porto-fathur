@@ -97,12 +97,12 @@ export default function Contact() {
                 src="/bb-contact.svg"
                 alt=""
                 aria-hidden="true"
-                className="contact-bg absolute top-0 md:top-18 left-0"
+                className="contact-bg absolute md:top-18 left-0"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-20 pb-24 gap-6 min-h-[90vh] md:min-h-screen">
+            <div className="relative z-10 flex flex-col items-center justify-center py-14 md:py-20 pb-20 md:pb-24 gap-5 md:gap-6 min-h-[70vh] md:min-h-screen">
 
                 {/* Judul */}
                 <h2

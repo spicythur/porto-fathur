@@ -138,7 +138,7 @@ export default function Skill() {
                 src="/bg3.svg"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 md:-top-15 z-0 w-full h-full object-cover md:object-fill md:min-h-[210%]"
+                className="absolute inset-0 top-5 md:-top-15 z-0 w-full h-full object-cover md:object-fill md:min-h-[210%]"
             />
 
             {/* Konten */}

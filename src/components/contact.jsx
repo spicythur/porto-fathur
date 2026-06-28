@@ -102,7 +102,7 @@ export default function Contact() {
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-14 md:py-20 pb-20 md:pb-24 gap-5 md:gap-6 min-h-[70vh] md:min-h-screen">
+            <div className="relative z-10 flex flex-col items-center justify-center py-12 md:py-20 pb-16 md:pb-24 gap-5 md:gap-6 min-h-[55vh] md:min-h-screen">
 
                 {/* Judul */}
                 <h2

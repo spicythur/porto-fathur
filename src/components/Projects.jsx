@@ -139,21 +139,22 @@ const Projects = () => {
             <>
                 <section
                     id="projects"
-                    className="relative w-full"
-                    style={{ height: '120svh' }}
+                    className="relative w-full -mt-8"
+                    style={{ height: '108svh' }}
                 >
                     {/* Beach image — 100svh */}
                     <img
                         src="/pantai.webp"
                         alt=""
-                        className="absolute inset-0 w-full h-full object-cover pointer-events-none top-15"
+                        aria-hidden="true"
+                        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                     />
 
                     {/* Teks Projects */}
                     <img
                         src="/project.svg"
                         alt="Projects"
-                        className="absolute top-[5%] w-[60%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+                        className="absolute top-[3%] w-[52%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
                     />
 
                     {/* Doodle burung */}
@@ -172,7 +173,7 @@ const Projects = () => {
 
                     {/* Swipe hint */}
                     <div className="absolute z-30 flex items-center gap-1 text-white/80"
-                        style={{ top: '24%', left: '50%', transform: 'translateX(-50%)' }}>
+                        style={{ top: '17%', left: '50%', transform: 'translateX(-50%)' }}>
                         <span className="text-xs font-[crayon] tracking-widest drop-shadow whitespace-nowrap">swipe cards →</span>
                     </div>
 
@@ -180,7 +181,7 @@ const Projects = () => {
                     <div
                         className="absolute left-0 right-0 flex overflow-x-auto no-scrollbar z-20"
                         style={{
-                            top: '30%',
+                            top: '23%',
                             paddingLeft: '5vw',
                             paddingRight: '5vw',
                             paddingBottom: '24px',

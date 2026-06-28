@@ -72,12 +72,16 @@ const Projects = () => {
     const [isSmallMobile, setIsSmallMobile] = useState(() =>
         typeof window !== 'undefined' ? window.innerWidth < 430 : false
     );
+    // Tinggi beach desktop — harus menutupi viewport meski halaman di-zoom (innerWidth/1440)
+    const [beachCoverH, setBeachCoverH] = useState(900);
 
     useEffect(() => {
         const update = () => {
             setIsMobile(window.innerWidth < 768);
             setIsSmallMobile(window.innerWidth < 430);
+            setBeachCoverH(Math.max(900, Math.ceil(window.innerHeight * 1440 / window.innerWidth) + 60));
         };
+        update();
         window.addEventListener('resize', update);
         return () => window.removeEventListener('resize', update);
     }, []);
@@ -266,12 +270,12 @@ const Projects = () => {
                     className="sticky top-0 left-0 w-full overflow-visible"
                     style={{ height: `${PANEL_HEIGHT}px` }}
                 >
-                    {/* Background pantai */}
+                    {/* Background pantai — tinggi dinamis biar gak ada gap putih pas window dikecilin */}
                     <img
                         src="/pantai.webp"
                         alt=""
-                        className="absolute left-0 w-full object-cover pointer-events-none"
-                        style={{ height: `${PANEL_HEIGHT}px` }}
+                        className="absolute left-0 top-0 w-full object-cover pointer-events-none"
+                        style={{ height: `${beachCoverH}px` }}
                     />
 
                     {/* Teks Projects */}

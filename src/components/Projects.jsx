@@ -139,8 +139,8 @@ const Projects = () => {
             <>
                 <section
                     id="projects"
-                    className="relative w-full -mt-8"
-                    style={{ height: '108svh' }}
+                    className="relative w-full"
+                    style={{ height: '112svh' }}
                 >
                     {/* Beach image — 100svh */}
                     <img
@@ -154,7 +154,7 @@ const Projects = () => {
                     <img
                         src="/project.svg"
                         alt="Projects"
-                        className="absolute top-[3%] w-[52%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
+                        className="absolute top-[7%] w-[52%] left-1/2 -translate-x-1/2 z-10 pointer-events-none"
                     />
 
                     {/* Doodle burung */}
@@ -173,7 +173,7 @@ const Projects = () => {
 
                     {/* Swipe hint */}
                     <div className="absolute z-30 flex items-center gap-1 text-white/80"
-                        style={{ top: '17%', left: '50%', transform: 'translateX(-50%)' }}>
+                        style={{ top: '22%', left: '50%', transform: 'translateX(-50%)' }}>
                         <span className="text-xs font-[crayon] tracking-widest drop-shadow whitespace-nowrap">swipe cards →</span>
                     </div>
 
@@ -181,7 +181,7 @@ const Projects = () => {
                     <div
                         className="absolute left-0 right-0 flex overflow-x-auto no-scrollbar z-20"
                         style={{
-                            top: '23%',
+                            top: '29%',
                             paddingLeft: '5vw',
                             paddingRight: '5vw',
                             paddingBottom: '24px',

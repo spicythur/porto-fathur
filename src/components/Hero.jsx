@@ -1,12 +1,27 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+// Lebar & tinggi desain desktop — dipakai untuk scale hero di mobile
+const DESIGN_WIDTH = 1440;
+const DESIGN_HEIGHT = 820;
+
 export default function Hero() {
     const container = useRef();
+
+    // Mobile: scale komposisi hero desktop agar sama persis, hanya lebih kecil
+    const [mobileScale, setMobileScale] = useState(null);
+    useEffect(() => {
+        const update = () => {
+            setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
+        };
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -68,22 +83,28 @@ export default function Hero() {
     }, { scope: container });
 
     return (
-        <section ref={container} className="relative z-10 w-full h-[78vh] md:h-screen">
+        <section ref={container} className="relative z-10 w-full overflow-hidden md:h-screen">
 
-            {/* Background foto alam */}
-            <img
-                src="/bg4.svg"
-                alt=""
-                aria-hidden="true"
-                className="hero-bg absolute inset-0 md:-top-20 w-full md:w-[120%] h-full md:h-[120%] object-cover md:object-contain"
-            />
-            {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
-            <div className="hero-text absolute top-[26%] left-[10%] md:top-50 md:left-50 z-10 w-[80%] md:w-[45%]">
+            {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
+            <div
+                className="relative w-full md:h-screen"
+                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: `${DESIGN_HEIGHT}px`, zoom: mobileScale } : undefined}
+            >
+                {/* Background foto alam */}
                 <img
-                    src="/teks-porto.svg"
-                    alt="Porto Folio"
-                    className="hero-text-inner w-full"
+                    src="/bg4.svg"
+                    alt=""
+                    aria-hidden="true"
+                    className="hero-bg absolute -top-20 w-[120%] h-[120%] object-contain"
                 />
+                {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
+                <div className="hero-text absolute top-50 left-50 z-10 w-[45%]">
+                    <img
+                        src="/teks-porto.svg"
+                        alt="Porto Folio"
+                        className="hero-text-inner w-full"
+                    />
+                </div>
             </div>
 
         </section>

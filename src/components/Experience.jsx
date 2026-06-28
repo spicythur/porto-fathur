@@ -132,7 +132,7 @@ export default function Experience() {
             {/* Scattered layout — desktop penuh, mobile di-scale agar muat */}
             <div
                 className="relative z-10 mt-5 mx-auto"
-                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, zoom: mobileScale } : { width: "100%" }}
+                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, zoom: mobileScale, marginBottom: "-1400px" } : { width: "100%" }}
             >
                 <div className="flex flex-col items-center pb-10">
 

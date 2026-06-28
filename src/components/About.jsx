@@ -100,7 +100,7 @@ export default function About() {
     }, { scope: container });
 
     return (
-        <section id="about" ref={container} className="relative z-0 w-full md:min-h-screen bg-[#2E8E37] md:-mt-70">
+        <section id="about" ref={container} className="relative z-0 w-full md:min-h-screen bg-[#2E8E37] -mt-20 md:-mt-70">
 
             {/* Konten */}
             <div className="relative z-10 flex flex-col md:flex-row w-full md:h-full md:min-h-screen px-6 md:px-10 py-12 md:py-20">
@@ -147,7 +147,7 @@ export default function About() {
             <img
                 src="/bawah.webp"
                 alt="bawah"
-                className="absolute -bottom-20 left-0 w-full z-20 object-scale-down pointer-events-none"
+                className="absolute bottom-0 md:-bottom-20 left-0 w-full z-20 object-scale-down pointer-events-none"
             />
         </section>
     )

@@ -139,6 +139,7 @@ const Projects = () => {
             <>
                 <section
                     id="projects"
+                    ref={wrapperRef}
                     className="relative w-full"
                     style={{ height: '112svh' }}
                 >

@@ -90,7 +90,7 @@ export default function Contact() {
     }, { scope: container });
 
     return (
-        <section id="contact" ref={container} className="relative w-cover z-20 -mt-8 md:-mt-28 bg-[#2E8E37]">
+        <section id="contact" ref={container} className="relative w-cover z-20 -mt-8 md:-mt-35">
 
             {/* Background SVG */}
             <img

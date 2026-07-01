@@ -107,6 +107,8 @@ const Projects = () => {
                 trigger: wrapperRef.current,
                 pin: stickyRef.current,
                 pinSpacing: false,
+                pinType: "transform",
+                anticipatePin: 1,
                 start: "top top",
                 end: `+=${TOTAL_HEIGHT - PANEL_HEIGHT}`,
                 scrub: 2,

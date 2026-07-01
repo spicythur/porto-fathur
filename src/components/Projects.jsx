@@ -268,7 +268,7 @@ const Projects = () => {
                 <div
                     ref={stickyRef}
                     className="sticky top-0 left-0 w-full overflow-visible"
-                    style={{ height: `${PANEL_HEIGHT}px` }}
+                    style={{ height: `${PANEL_HEIGHT}px`, willChange: 'transform' }}
                 >
                     {/* Background pantai — tinggi dinamis biar gak ada gap putih pas window dikecilin */}
                     <img

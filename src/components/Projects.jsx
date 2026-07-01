@@ -105,6 +105,8 @@ const Projects = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
+                pin: stickyRef.current,
+                pinSpacing: false,
                 start: "top top",
                 end: `+=${TOTAL_HEIGHT - PANEL_HEIGHT}`,
                 scrub: 2,
@@ -267,7 +269,7 @@ const Projects = () => {
             >
                 <div
                     ref={stickyRef}
-                    className="sticky top-0 left-0 w-full overflow-visible"
+                    className="top-0 left-0 w-full overflow-visible"
                     style={{ height: `${PANEL_HEIGHT}px` }}
                 >
                     {/* Background pantai — tinggi dinamis biar gak ada gap putih pas window dikecilin */}

@@ -265,7 +265,7 @@ const Projects = () => {
                 id="projects"
                 ref={wrapperRef}
                 className="relative w-full -mt-200"
-                style={{ height: `${TOTAL_HEIGHT}px` }}
+                style={{ height: `${TOTAL_HEIGHT - PANEL_HEIGHT}px` }}
             >
                 <div
                     ref={stickyRef}

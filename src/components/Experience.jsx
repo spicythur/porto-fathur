@@ -12,12 +12,13 @@ export default function Experience() {
     const container = useRef();
 
     // Mobile: scale layout scattered desktop agar muat (zoom mempengaruhi layout box)
-    const [mobileScale, setMobileScale] = useState(null);
+    const [mobileScale, setMobileScale] = useState(
+        () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
+    );
     useEffect(() => {
         const update = () => {
             setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
         };
-        update();
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);

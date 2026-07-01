@@ -26,12 +26,13 @@ export default function Skill() {
     const iconRefs = useRef([]);
 
     // Mobile: scale layout floating desktop agar muat (zoom mempengaruhi layout box)
-    const [mobileScale, setMobileScale] = useState(null);
+    const [mobileScale, setMobileScale] = useState(
+        () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
+    );
     useEffect(() => {
         const update = () => {
             setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
         };
-        update();
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);
@@ -145,9 +146,10 @@ export default function Skill() {
             <div className="relative z-10 flex flex-col w-full md:min-h-screen px-0 md:px-10 py-14 md:py-20">
 
                 {/* Floating layout — desktop penuh, mobile di-scale agar muat */}
+                <div style={mobileScale ? { height: `${1650 * mobileScale}px`, overflow: 'hidden', width: '100%' } : {}}>
                 <div
                     className="relative mx-auto"
-                    style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: "1650px", zoom: mobileScale } : { width: "100%" }}
+                    style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: "1650px", transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : { width: "100%" }}
                 >
                     <div className="relative flex items-center justify-center w-full mt-10" style={{ height: "600px" }}>
 
@@ -192,6 +194,7 @@ export default function Skill() {
                             className="skill-photo absolute -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
                         />
                     </div>
+                </div>
                 </div>
             </div>
         </section>

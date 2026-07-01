@@ -12,13 +12,13 @@ const DESIGN_HEIGHT = 820;
 export default function Hero() {
     const container = useRef();
 
-    // Mobile: scale komposisi hero desktop agar sama persis, hanya lebih kecil
-    const [mobileScale, setMobileScale] = useState(null);
+    const [mobileScale, setMobileScale] = useState(
+        () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
+    );
     useEffect(() => {
         const update = () => {
             setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
         };
-        update();
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);
@@ -83,12 +83,15 @@ export default function Hero() {
     }, { scope: container });
 
     return (
-        <section ref={container} className="relative z-10 w-full overflow-x-clip md:h-screen">
-
+        <section
+            ref={container}
+            className="relative z-10 w-full overflow-hidden md:overflow-x-clip md:h-screen"
+            style={mobileScale ? { height: `${DESIGN_HEIGHT * mobileScale}px` } : undefined}
+        >
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div
                 className="relative w-full md:h-screen"
-                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: `${DESIGN_HEIGHT}px`, zoom: mobileScale } : undefined}
+                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: `${DESIGN_HEIGHT}px`, transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : undefined}
             >
                 {/* Background foto alam */}
                 <img

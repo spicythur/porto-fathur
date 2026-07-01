@@ -85,7 +85,7 @@ export default function Hero() {
     return (
         <section
             ref={container}
-            className="relative z-10 w-full overflow-hidden md:overflow-x-clip md:h-screen"
+            className="relative z-10 w-full md:overflow-x-clip md:h-screen"
             style={mobileScale ? { height: `${DESIGN_HEIGHT * mobileScale}px` } : undefined}
         >
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}

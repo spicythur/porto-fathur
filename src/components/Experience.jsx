@@ -116,37 +116,37 @@ export default function Experience() {
 
             {/* Mobile layout — vertical stack */}
             {isMobile && (
-                <div className="relative z-10 flex flex-col gap-8 px-6 py-8">
+                <div className="relative z-10 flex flex-col gap-6 px-4 py-6">
 
-                    <div className="exp-item flex flex-col items-center gap-3">
-                        <img src="/propok.webp" alt="Provoks Multimedia" className="w-[80%] max-w-xs object-contain" />
-                        <div className="flex flex-col items-center gap-1">
-                            <img src="/Provoks.svg" alt="Provoks" className="w-32" />
-                            <p className="text-[#F7DF19] text-2xl font-[crayon] text-center">Multimedia and Event</p>
+                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
+                        <img src="/propok.webp" alt="Provoks Multimedia" className="w-full h-48 object-cover" />
+                        <div className="flex items-center gap-3 px-4 py-3">
+                            <img src="/Provoks.svg" alt="Provoks" className="w-16 shrink-0" />
+                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Multimedia and Event</p>
                         </div>
                     </div>
 
-                    <div className="exp-item flex flex-col items-center gap-3">
-                        <img src="/yuwa.webp" alt="PKKMB" className="w-[80%] max-w-xs h-auto object-contain" />
-                        <div className="flex flex-col items-center gap-1">
-                            <img src="/pkkmb.svg" alt="PKKMB" className="w-32" />
-                            <p className="text-[#F7DF19] text-2xl font-[crayon] text-center">Staff DDMIT PKKMB</p>
+                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
+                        <img src="/yuwa.webp" alt="PKKMB" className="w-full h-48 object-cover object-top" />
+                        <div className="flex items-center gap-3 px-4 py-3">
+                            <img src="/pkkmb.svg" alt="PKKMB" className="w-16 shrink-0" />
+                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Staff DDMIT PKKMB</p>
                         </div>
                     </div>
 
-                    <div className="exp-item flex flex-col items-center gap-3">
-                        <img src="/magang.webp" alt="PSIK" className="w-[80%] max-w-xs object-contain" />
-                        <div className="flex flex-col items-center gap-1">
-                            <img src="/psik.svg" alt="PSIK" className="w-32" />
-                            <p className="text-[#F7DF19] text-2xl font-[crayon] text-center">Internship</p>
+                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
+                        <img src="/magang.webp" alt="PSIK" className="w-full h-48 object-cover" />
+                        <div className="flex items-center gap-3 px-4 py-3">
+                            <img src="/psik.svg" alt="PSIK" className="w-16 shrink-0" />
+                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Internship</p>
                         </div>
                     </div>
 
-                    <div className="exp-item flex flex-col items-center gap-3">
-                        <img src="/reborn.webp" alt="Provoks Enforcer" className="w-[80%] max-w-xs object-contain" />
-                        <div className="flex flex-col items-center gap-1">
-                            <img src="/Provoks.svg" alt="Provoks" className="w-32" />
-                            <p className="text-[#F7DF19] text-2xl font-[crayon] text-center">Enforcer Event</p>
+                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
+                        <img src="/reborn.webp" alt="Provoks Enforcer" className="w-full h-48 object-cover object-top" />
+                        <div className="flex items-center gap-3 px-4 py-3">
+                            <img src="/Provoks.svg" alt="Provoks" className="w-16 shrink-0" />
+                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Enforcer Event</p>
                         </div>
                     </div>
 

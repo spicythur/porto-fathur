@@ -10,6 +10,8 @@ const DESIGN_WIDTH = 1440;
 
 export default function Experience() {
     const container = useRef();
+    const contentRef = useRef(null);
+    const [rawH, setRawH] = useState(1600);
 
     // Mobile: scale layout scattered desktop agar muat (zoom mempengaruhi layout box)
     const [mobileScale, setMobileScale] = useState(
@@ -22,6 +24,12 @@ export default function Experience() {
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);
+
+    useEffect(() => {
+        if (contentRef.current && mobileScale) {
+            setRawH(contentRef.current.scrollHeight);
+        }
+    }, [mobileScale]);
 
     useGSAP(() => {
         const isMobile = window.innerWidth < 768;
@@ -113,7 +121,7 @@ export default function Experience() {
     }, { scope: container });
 
     return (
-        <section id="experience" ref={container} className="relative pb-10 bg-[#2E8E37] md:bg-white md:top-195 overflow-x-clip md:overflow-visible">
+        <section id="experience" ref={container} className="relative pb-10 bg-[#2E8E37] md:bg-white md:top-195 overflow-hidden md:overflow-visible">
 
             {/* Background SVG (parallax layer) — mobile: cover penuh, desktop: fill */}
             <img
@@ -131,9 +139,11 @@ export default function Experience() {
             />
 
             {/* Scattered layout — desktop penuh, mobile di-scale agar muat */}
+            <div style={mobileScale ? { height: `${rawH * mobileScale}px`, overflow: 'hidden', marginBottom: `-${1400 * mobileScale}px` } : {}}>
             <div
+                ref={contentRef}
                 className="relative z-10 mt-5 mx-auto"
-                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, zoom: mobileScale, marginBottom: "-1400px" } : { width: "100%" }}
+                style={mobileScale ? { width: `${DESIGN_WIDTH}px`, transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : { width: "100%" }}
             >
                 <div className="flex flex-col items-center pb-10">
 
@@ -173,6 +183,7 @@ export default function Experience() {
 
                     <img src="/panah.svg" alt="" className="exp-doodle absolute top-20 left-72 w-16" />
                 </div>
+            </div>
             </div>
 
         </section>

@@ -6,25 +6,20 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const DESIGN_WIDTH = 1440;
+const DESIGN_HEIGHT = 1600;
 
 export default function Experience() {
     const container = useRef();
-    const contentRef = useRef(null);
 
     const [mobileScale, setMobileScale] = useState(
         () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
     );
-    const [rawH, setRawH] = useState(1600);
 
     useEffect(() => {
         const update = () => setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);
-
-    useEffect(() => {
-        if (contentRef.current) setRawH(contentRef.current.scrollHeight);
-    }, [mobileScale]);
 
     useGSAP(() => {
         const isMobile = window.innerWidth < 768;
@@ -126,11 +121,10 @@ export default function Experience() {
             />
 
             {/* Scattered layout — desktop penuh, mobile di-scale agar sama persis */}
-            <div style={mobileScale ? { height: `${rawH * mobileScale}px`, overflow: 'hidden', marginBottom: `-${1400 * mobileScale}px` } : {}}>
+            <div style={mobileScale ? { height: `${DESIGN_HEIGHT * mobileScale}px`, overflow: 'hidden', marginBottom: `-${1400 * mobileScale}px` } : {}}>
                 <div
-                    ref={contentRef}
                     className="relative z-10 mt-5 mx-auto"
-                    style={mobileScale ? { width: `${DESIGN_WIDTH}px`, transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : { width: "100%" }}
+                    style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: `${DESIGN_HEIGHT}px`, transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : { width: "100%" }}
                 >
                     <div className="flex flex-col items-center pb-10">
 

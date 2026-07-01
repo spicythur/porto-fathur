@@ -102,11 +102,22 @@ const Projects = () => {
         // Hide cards immediately
         gsap.set(panels, { opacity: 0 });
 
+        // Simulate sticky via translateY — stays inside parent zoom coordinate system.
+        // position:fixed (GSAP pin) breaks out of zoom causing wrong size/position.
+        gsap.to(stickyRef.current, {
+            y: TOTAL_HEIGHT - PANEL_HEIGHT,
+            ease: "none",
+            scrollTrigger: {
+                trigger: wrapperRef.current,
+                start: "top top",
+                end: `+=${TOTAL_HEIGHT - PANEL_HEIGHT}`,
+                scrub: 0,
+            }
+        });
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
-                pin: stickyRef.current,
-                pinSpacing: false,
                 start: "top top",
                 end: `+=${TOTAL_HEIGHT - PANEL_HEIGHT}`,
                 scrub: 2,
@@ -265,7 +276,7 @@ const Projects = () => {
                 id="projects"
                 ref={wrapperRef}
                 className="relative w-full -mt-200"
-                style={{ height: `${TOTAL_HEIGHT - PANEL_HEIGHT}px` }}
+                style={{ height: `${TOTAL_HEIGHT}px` }}
             >
                 <div
                     ref={stickyRef}

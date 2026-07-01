@@ -111,7 +111,7 @@ export default function Experience() {
                 src="/bgexp.svg"
                 alt=""
                 aria-hidden="true"
-                className="absolute exp-bg z-8 inset-0 md:inset-auto md:bottom-190 w-full h-full object-cover md:object-fill"
+                className="absolute exp-bg z-8 -top-8 inset-x-0 bottom-0 md:inset-auto md:bottom-190 w-full h-full object-cover md:object-fill"
             />
 
             <img

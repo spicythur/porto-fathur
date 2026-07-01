@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const DESIGN_WIDTH = 1440;
-const DESIGN_HEIGHT = 2400;
+const DESIGN_HEIGHT = 2800;
 
 export default function Experience() {
     const container = useRef();

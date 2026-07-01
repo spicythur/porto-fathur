@@ -7,7 +7,6 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const NAV_LINKS = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
 
-// Squiggle underline tulisan tangan — kegambar pas hover (teknik path-draw)
 function Squiggle() {
     return (
         <svg
@@ -38,16 +37,11 @@ export default function NavBar() {
         gsap.set(mobileMenuRef.current, { xPercent: 100, display: 'none' });
     }, { scope: containerRef });
 
-    // Desktop hover — slide down + links pop-in staggered
     const handleMouseEnter = () => {
-        gsap.to(navRef.current, { yPercent: 0, duration: 0.6, ease: "power3.out", overwrite: true });
-        gsap.fromTo('.nav-link-d',
-            { y: -24, opacity: 0, scale: 0.5, rotation: -10 },
-            { y: 0, opacity: 1, scale: 1, rotation: 0, duration: 0.5, stagger: 0.06, ease: "back.out(2.5)", delay: 0.15, overwrite: true }
-        );
+        gsap.to(navRef.current, { yPercent: 0, duration: 0.35, ease: "power2.out", overwrite: true });
     };
     const handleMouseLeave = () => {
-        gsap.to(navRef.current, { yPercent: -100, duration: 0.5, ease: "power3.in", overwrite: true });
+        gsap.to(navRef.current, { yPercent: -100, duration: 0.3, ease: "power2.in", overwrite: true });
     };
 
     // Mobile menu — slide in + links pop-in + doodles
@@ -85,13 +79,14 @@ export default function NavBar() {
     return (
         <div ref={containerRef} className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
 
-            {/* Desktop navbar — hover trigger */}
+            {/* Desktop navbar — hover to reveal */}
             <div
                 className="hidden md:block absolute top-0 left-0 right-0 pointer-events-auto"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
             >
-                <div className="h-16 w-full bg-transparent absolute top-0 left-0 z-10" />
+                {/* Hitbox trigger area */}
+                <div className="h-10 w-full absolute top-0 left-0 z-10" />
                 <nav
                     ref={navRef}
                     className="relative w-full px-8 py-8 flex justify-center items-center bg-[url('/navbar2.svg')] bg-[size:100%_100%] bg-no-repeat pt-10"
@@ -104,7 +99,7 @@ export default function NavBar() {
                                     <a
                                         href={targetId}
                                         onClick={(e) => handleNavClick(e, targetId)}
-                                        className="nav-link-d group relative font-[crayon] text-3xl text-white hover:text-[#F7DF19] transition-[color,transform] duration-300 hover:scale-110 hover:-rotate-3 inline-block cursor-pointer"
+                                        className="group relative font-[crayon] text-3xl text-white hover:text-[#F7DF19] transition-colors duration-200 inline-block cursor-pointer px-1 py-2"
                                         style={{ textShadow: "2px 2px 0px rgba(0,0,0,1)" }}
                                     >
                                         {link}

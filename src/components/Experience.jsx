@@ -5,18 +5,29 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const DESIGN_WIDTH = 1440;
+
 export default function Experience() {
     const container = useRef();
+    const contentRef = useRef(null);
 
-    const [isMobile, setIsMobile] = useState(() => window.innerWidth < 768);
+    const [mobileScale, setMobileScale] = useState(
+        () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
+    );
+    const [rawH, setRawH] = useState(1600);
+
     useEffect(() => {
-        const update = () => setIsMobile(window.innerWidth < 768);
+        const update = () => setMobileScale(window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null);
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);
 
+    useEffect(() => {
+        if (contentRef.current) setRawH(contentRef.current.scrollHeight);
+    }, [mobileScale]);
+
     useGSAP(() => {
-        const mobile = window.innerWidth < 768;
+        const isMobile = window.innerWidth < 768;
 
         gsap.to(".exp-bg", {
             y: -120,
@@ -36,7 +47,7 @@ export default function Experience() {
             ease: "back.out(1.5)",
             scrollTrigger: {
                 trigger: container.current,
-                start: mobile ? "top 85%" : "top 60%",
+                start: isMobile ? "top 85%" : "top 60%",
             }
         });
 
@@ -44,16 +55,16 @@ export default function Experience() {
         items.forEach((item, i) => {
             const direction = i % 2 === 0 ? -1 : 1;
             gsap.from(item, {
-                x: direction * (mobile ? 40 : 100),
+                x: direction * (isMobile ? 40 : 100),
                 y: 50,
                 opacity: 0,
                 scale: 0.9,
-                rotation: direction * (mobile ? 3 : 8),
+                rotation: direction * (isMobile ? 3 : 8),
                 duration: 1,
                 ease: "back.out(1.3)",
                 scrollTrigger: {
                     trigger: item,
-                    start: mobile ? "top 90%" : "top 75%",
+                    start: isMobile ? "top 90%" : "top 75%",
                 }
             });
         });
@@ -114,48 +125,13 @@ export default function Experience() {
                 className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-1 md:top-8 pt-8"
             />
 
-            {/* Mobile layout — vertical stack */}
-            {isMobile && (
-                <div className="relative z-10 flex flex-col gap-6 px-4 py-6">
-
-                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
-                        <img src="/propok.webp" alt="Provoks Multimedia" className="w-full h-48 object-cover" />
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <img src="/Provoks.svg" alt="Provoks" className="w-16 shrink-0" />
-                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Multimedia and Event</p>
-                        </div>
-                    </div>
-
-                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
-                        <img src="/yuwa.webp" alt="PKKMB" className="w-full h-48 object-cover object-top" />
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <img src="/pkkmb.svg" alt="PKKMB" className="w-16 shrink-0" />
-                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Staff DDMIT PKKMB</p>
-                        </div>
-                    </div>
-
-                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
-                        <img src="/magang.webp" alt="PSIK" className="w-full h-48 object-cover" />
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <img src="/psik.svg" alt="PSIK" className="w-16 shrink-0" />
-                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Internship</p>
-                        </div>
-                    </div>
-
-                    <div className="exp-item bg-white/10 rounded-2xl overflow-hidden">
-                        <img src="/reborn.webp" alt="Provoks Enforcer" className="w-full h-48 object-cover object-top" />
-                        <div className="flex items-center gap-3 px-4 py-3">
-                            <img src="/Provoks.svg" alt="Provoks" className="w-16 shrink-0" />
-                            <p className="text-[#F7DF19] text-xl font-[crayon] leading-tight">Enforcer Event</p>
-                        </div>
-                    </div>
-
-                </div>
-            )}
-
-            {/* Desktop layout — scattered absolute positioning, unchanged */}
-            {!isMobile && (
-                <div className="relative z-10 mt-5 mx-auto" style={{ width: "100%" }}>
+            {/* Scattered layout — desktop penuh, mobile di-scale agar sama persis */}
+            <div style={mobileScale ? { height: `${rawH * mobileScale}px`, overflow: 'hidden', marginBottom: `-${1400 * mobileScale}px` } : {}}>
+                <div
+                    ref={contentRef}
+                    className="relative z-10 mt-5 mx-auto"
+                    style={mobileScale ? { width: `${DESIGN_WIDTH}px`, transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : { width: "100%" }}
+                >
                     <div className="flex flex-col items-center pb-10">
 
                         <div className="relative exp-item items-center left-13">
@@ -195,7 +171,7 @@ export default function Experience() {
                         <img src="/panah.svg" alt="" className="exp-doodle absolute top-20 left-72 w-16" />
                     </div>
                 </div>
-            )}
+            </div>
 
         </section>
     )

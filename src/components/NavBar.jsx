@@ -50,12 +50,12 @@ export default function NavBar() {
         gsap.set(mobileMenuRef.current, { display: 'flex' });
         gsap.to(mobileMenuRef.current, { xPercent: 0, duration: 0.4, ease: "power3.out" });
         gsap.fromTo('.nav-link-m',
-            { y: 44, opacity: 0, scale: 0.5, rotation: -6 },
-            { y: 0, opacity: 1, scale: 1, rotation: 0, duration: 0.55, stagger: 0.08, ease: "back.out(2)", delay: 0.2 }
+            { y: 20, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.35, stagger: 0.05, ease: "power2.out", delay: 0.15 }
         );
         gsap.fromTo('.nav-doodle',
-            { scale: 0, opacity: 0 },
-            { scale: 1, opacity: 0.55, duration: 0.6, stagger: 0.12, ease: "back.out(2)", delay: 0.1 }
+            { scale: 0.7, opacity: 0 },
+            { scale: 1, opacity: 0.55, duration: 0.4, stagger: 0.08, ease: "power2.out", delay: 0.1 }
         );
     };
     const closeMobile = () => {
@@ -133,13 +133,6 @@ export default function NavBar() {
                 <img src="/kapal.svg" alt="" aria-hidden="true" className="nav-doodle absolute right-5 top-32 w-24 -rotate-6 pointer-events-none" style={{ animation: "float 6s ease-in-out infinite" }} />
                 <img src="/ikan.svg" alt="" aria-hidden="true" className="nav-doodle absolute right-10 bottom-24 w-20 -rotate-12 pointer-events-none" style={{ animation: "float 5s ease-in-out infinite" }} />
 
-                <button
-                    className="absolute top-4 right-4 w-11 h-11 rounded-full bg-[#F7DF19] text-[#2E8E37] text-2xl font-black flex items-center justify-center z-10"
-                    onClick={closeMobile}
-                    aria-label="Close menu"
-                >
-                    ×
-                </button>
                 {NAV_LINKS.map((link) => {
                     const targetId = `#${link.toLowerCase()}`;
                     return (
@@ -147,7 +140,7 @@ export default function NavBar() {
                             key={link}
                             href={targetId}
                             onClick={(e) => handleNavClick(e, targetId)}
-                            className="nav-link-m relative z-10 font-[crayon] text-5xl text-[#F7DF19] transition-transform duration-200 hover:scale-110 hover:-rotate-3 active:scale-110 active:-rotate-3 cursor-pointer"
+                            className="nav-link-m relative z-10 font-[crayon] text-3xl text-[#F7DF19] transition-transform duration-200 hover:scale-110 hover:-rotate-3 active:scale-110 active:-rotate-3 cursor-pointer"
                             style={{ textShadow: "2px 2px 0px rgba(0,0,0,0.3)" }}
                         >
                             {link}

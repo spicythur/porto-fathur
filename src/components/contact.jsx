@@ -98,11 +98,11 @@ export default function Contact() {
                 alt=""
                 aria-hidden="true"
                 className="contact-bg absolute md:top-18 left-0"
-                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                style={{ width: "100%", height: "110%", objectFit: "cover" }}
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-12 md:py-20 pb-16 md:pb-24 gap-5 md:gap-6 min-h-[55vh] md:min-h-screen">
+            <div className="relative z-10 flex flex-col items-center justify-center py-12 md:py-20 pb-16 md:pb-24 gap-2 md:gap-6 min-h-[55vh] md:min-h-screen">
 
                 {/* Judul */}
                 <h2
@@ -125,17 +125,17 @@ export default function Contact() {
                     ref={btnRef}
                     href="/cv.pdf"
                     download
-                    className="contact-item mt-2 px-8 py-3 bg-[#F7DF19] rounded-full text-[#2E8E37] font-black tracking-widest hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-colors duration-300 inline-block"
+                    className="contact-item mt-2 px-5 py-2 text-xs md:px-8 md:py-3 md:text-base bg-[#F7DF19] rounded-full text-[#2E8E37] font-black tracking-widest hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-colors duration-300 inline-block"
                 >
                     WORKING WITH ME
                 </a>
 
                 {/* Social icons */}
-                <div className="contact-item flex gap-4 mt-2">
+                <div className="contact-item flex gap-3 md:gap-4 mt-2">
                     {[
-                        { icon: <FaInstagram size={20} aria-hidden="true" />, label: "Instagram", href: "https://www.instagram.com/tthuuur?igsh=N3RpeGo4MXR6dnR0&utm_source=qr" },
-                        { icon: <FaLinkedin size={20} aria-hidden="true" />, label: "LinkedIn", href: "https://www.linkedin.com/in/agus-fathurrahman-rifai/" },
-                        { icon: <FaGithub size={20} aria-hidden="true" />, label: "GitHub", href: "https://github.com/spicythur" }
+                        { icon: <FaInstagram className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />, label: "Instagram", href: "https://www.instagram.com/tthuuur?igsh=N3RpeGo4MXR6dnR0&utm_source=qr" },
+                        { icon: <FaLinkedin className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />, label: "LinkedIn", href: "https://www.linkedin.com/in/agus-fathurrahman-rifai/" },
+                        { icon: <FaGithub className="w-4 h-4 md:w-5 md:h-5" aria-hidden="true" />, label: "GitHub", href: "https://github.com/spicythur" }
                     ].map((item, i) => (
 
                         <a
@@ -144,7 +144,7 @@ export default function Contact() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={item.label}
-                            className="w-10 h-10 rounded-full bg-[#F7DF19] flex items-center justify-center text-[#2E8E37] hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-all duration-300"
+                            className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[#F7DF19] flex items-center justify-center text-[#2E8E37] hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-all duration-300"
                         >
                             {item.icon}
                         </a>

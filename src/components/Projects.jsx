@@ -57,7 +57,9 @@ const projects = [
 ];
 
 const PANEL_WIDTH = 1000;
-const SCROLL_PER_PANEL = 600;
+// Budget scroll vertikal (dalam koordinat desain 1440) per project — makin kecil,
+// makin cepat card geser horizontalnya.
+const SCROLL_PER_PANEL = 420;
 const CARD_ROTATIONS = ['-rotate-3', 'rotate-2', '-rotate-5', 'rotate-4', '-rotate-2', 'rotate-6', '-rotate-4', 'rotate-3', '-rotate-1', 'rotate-5', '-rotate-6', 'rotate-1', '-rotate-3', 'rotate-2'];
 const CARD_Y_OFFSETS = ['translate-y-4', '-translate-y-3', 'translate-y-6', '-translate-y-4', 'translate-y-2', '-translate-y-5', 'translate-y-5', '-translate-y-2', 'translate-y-3', '-translate-y-6', 'translate-y-4', '-translate-y-3', 'translate-y-2', '-translate-y-4'];
 
@@ -72,14 +74,16 @@ const Projects = () => {
     const [isSmallMobile, setIsSmallMobile] = useState(() =>
         typeof window !== 'undefined' ? window.innerWidth < 430 : false
     );
-    // Tinggi beach desktop — harus menutupi viewport meski halaman di-zoom (innerWidth/1440)
-    const [beachCoverH, setBeachCoverH] = useState(900);
+    // Tinggi "panggung" = tinggi viewport dalam koordinat desain 1440 (App pakai
+    // zoom = innerWidth/1440). Dipakai untuk fake-pin berbasis transform yang kebal
+    // zoom — position:sticky mati total di dalam subtree ber-zoom di Chromium.
+    const [stageH, setStageH] = useState(900);
 
     useEffect(() => {
         const update = () => {
             setIsMobile(window.innerWidth < 768);
             setIsSmallMobile(window.innerWidth < 430);
-            setBeachCoverH(Math.max(900, Math.ceil(window.innerHeight * 1440 / window.innerWidth) + 60));
+            setStageH(Math.max(700, Math.round(window.innerHeight * 1440 / window.innerWidth)));
         };
         update();
         window.addEventListener('resize', update);
@@ -90,8 +94,7 @@ const Projects = () => {
         setLoadedImages(prev => ({ ...prev, [id]: true }));
     }, []);
 
-    const PANEL_HEIGHT = 900;
-    const TOTAL_HEIGHT = isMobile ? PANEL_HEIGHT : PANEL_HEIGHT + (projects.length * SCROLL_PER_PANEL);
+    const TOTAL_HEIGHT = stageH + (projects.length * SCROLL_PER_PANEL);
 
     useGSAP(() => {
         if (isMobile) return;
@@ -102,30 +105,57 @@ const Projects = () => {
         // Hide cards immediately
         gsap.set(panels, { opacity: 0 });
 
+        // Promosikan strip & panggung ke layer GPU sendiri SEBELUM scrub dimulai.
+        // Tanpa ini, GSAP force3D:"auto" bisa bolak-balik antara representasi
+        // transform 2D/3D di tengah scroll → repaint mendadak → keliatan "gedek2".
+        gsap.set(['.project-wrapper', stickyRef.current], { force3D: true });
+
+        // Jarak pin dalam pixel layar NYATA (getBoundingClientRect sudah kena zoom).
+        // Ini yang dipakai ScrollTrigger untuk panjang scrub.
+        const getPinDistance = () =>
+            wrapperRef.current.getBoundingClientRect().height -
+            stickyRef.current.getBoundingClientRect().height;
+
+        // zoom aktif di App.jsx; transform bekerja di koordinat desain (layout),
+        // jadi jarak real px harus dibagi zoom untuk dapat jarak translateY layout.
+        const getZoom = () =>
+            window.innerWidth >= 768 ? window.innerWidth / 1440 : 1;
+
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: wrapperRef.current,
                 start: "top top",
-                end: `+=${TOTAL_HEIGHT - PANEL_HEIGHT}`,
-                scrub: 2,
+                end: () => `+=${getPinDistance()}`,
+                scrub: true,
+                invalidateOnRefresh: true,
             }
         });
+
+        // FAKE PIN: geser panggung ke bawah persis sebanyak scroll (dalam koordinat
+        // desain) supaya terlihat diam di viewport. Transform → kebal zoom, beda
+        // dengan position:sticky yang mati di subtree ber-zoom. Satu timeline dengan
+        // gerak horizontal → pin & card mustahil desync.
+        tl.to(stickyRef.current, {
+            y: () => getPinDistance() / getZoom(),
+            ease: "none",
+            duration: 1,
+            force3D: true
+        }, 0);
 
         tl.to('.project-title-img', {
             y: -260,
             scale: 0.5,
             ease: "power2.out",
-            duration: 0.5,
-            immediateRender: true
-        }, 0.1);
+            duration: 0.35
+        }, 0.05);
 
         tl.to(panels, {
             opacity: 1,
-            duration: 0.2,
-            stagger: 0.02,
+            duration: 0.15,
+            stagger: 0.015,
             ease: "power1.inOut",
             immediateRender: false
-        }, 0.15);
+        }, 0.1);
 
         tl.to('.project-wrapper', {
             x: () => {
@@ -133,7 +163,8 @@ const Projects = () => {
                 return -(wrapper.scrollWidth - 1440);
             },
             ease: "none",
-            duration: 1
+            duration: 0.7,
+            force3D: true
         }, 0.3);
 
     }, { scope: wrapperRef, dependencies: [isMobile] });
@@ -267,15 +298,14 @@ const Projects = () => {
             >
                 <div
                     ref={stickyRef}
-                    className="sticky top-0 left-0 w-full overflow-visible"
-                    style={{ height: `${PANEL_HEIGHT}px`, willChange: 'transform' }}
+                    className="absolute top-0 left-0 w-full overflow-visible"
+                    style={{ height: `${stageH}px`, willChange: 'transform' }}
                 >
-                    {/* Background pantai — tinggi dinamis biar gak ada gap putih pas window dikecilin */}
+                    {/* Background pantai — mengisi penuh panggung (setinggi viewport) */}
                     <img
                         src="/pantai.webp"
                         alt=""
-                        className="absolute left-0 top-0 w-full object-cover pointer-events-none"
-                        style={{ height: `${beachCoverH}px` }}
+                        className="absolute left-0 top-0 w-full h-full object-cover pointer-events-none"
                     />
 
                     {/* Teks Projects */}
@@ -302,7 +332,7 @@ const Projects = () => {
                     {/* Horizontal scroll panels */}
                     <div
                         className="project-wrapper flex h-full pl-[10vw] pr-[20vw]"
-                        style={{ width: 'max-content', paddingTop: '350px' }}
+                        style={{ width: 'max-content', paddingTop: '350px', willChange: 'transform' }}
                     >
                         {projects.map((project, index) => {
                             const rotation = CARD_ROTATIONS[index % CARD_ROTATIONS.length];

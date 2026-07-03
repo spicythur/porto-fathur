@@ -1,9 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 
 // Lebar & tinggi desain desktop — dipakai untuk scale hero di mobile
 const DESIGN_WIDTH = 1440;
@@ -22,6 +23,11 @@ export default function Hero() {
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
     }, []);
+
+    const scrollToSection = (e, targetId) => {
+        e.preventDefault();
+        gsap.to(window, { duration: 1.2, scrollTo: { y: targetId }, ease: "power3.inOut" });
+    };
 
     useGSAP(() => {
         const tl = gsap.timeline();
@@ -101,12 +107,28 @@ export default function Hero() {
                     className="hero-bg absolute -top-20 w-[120%] h-[120%] object-contain"
                 />
                 {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
-                <div className="hero-text absolute top-50 left-50 z-10 w-[45%]">
+                <div className="hero-text absolute top-40 md:top-60 left-40 z-10 w-[45%] flex flex-col gap-2 md:gap-8">
                     <img
                         src="/teks-porto.svg"
                         alt="Porto Folio"
-                        className="hero-text-inner w-full"
+                        className="hero-text-inner w-[85%]"
                     />
+
+                    {/* CTA — nilai mobile (unprefixed) dikompensasi karena wrapper ini
+                        di-scale ~0.27x oleh mobileScale; md: pakai ukuran asli karena
+                        desktop gak lewat mobileScale (dizoom App.jsx secara seragam).
+                        Satu baris + label pendek di mobile — ruang vertikal sebelum
+                        border zigzag About sangat terbatas. */}
+                    <div className="hero-cta flex items-center gap-3 md:gap-4 mt-10 md:mt-0 ml-[50px] md:ml-20">
+                        <a
+                            href="#projects"
+                            onClick={(e) => scrollToSection(e, "#projects")}
+                            className="inline-block px-[38px] py-[16px] md:px-9 md:py-4 bg-[#F7DF19] text-[#2E8E37] rounded-full font-[crayon] text-[36px] md:text-2xl border-[5px] md:border-[3px] border-[#2E8E37] shadow-[6px_6px_0_0_#2E8E37] md:shadow-[4px_4px_0_0_#2E8E37] -rotate-2 hover:rotate-0 hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-[2px_2px_0_0_#2E8E37] transition-all duration-200 ease-out cursor-pointer whitespace-nowrap"
+                        >
+                            <span className="md:hidden">View Work</span>
+                            <span className="hidden md:inline">View My Work</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 

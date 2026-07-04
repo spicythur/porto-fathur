@@ -108,6 +108,7 @@ export default function About() {
                 {/* Kiri / Atas (mobile) - Judul + Foto */}
                 <div className="flex flex-col items-center md:items-stretch w-full md:w-1/2">
 
+                    <h2 className="sr-only">About Me</h2>
                     <img
                         src="/about.svg"
                         alt="About Me"

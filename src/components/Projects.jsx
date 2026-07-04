@@ -187,6 +187,7 @@ const Projects = () => {
                     />
 
                     {/* Teks Projects */}
+                    <h2 className="sr-only">Projects</h2>
                     <img
                         src="/project.svg"
                         alt="Projects"
@@ -309,6 +310,7 @@ const Projects = () => {
                     />
 
                     {/* Teks Projects */}
+                    <h2 className="sr-only">Projects</h2>
                     <img
                         src="/project.svg"
                         alt="Projects"

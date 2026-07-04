@@ -94,6 +94,10 @@ export default function Hero() {
             className="relative z-10 w-full md:overflow-x-clip md:h-screen"
             style={mobileScale ? { height: `${DESIGN_HEIGHT * mobileScale}px` } : undefined}
         >
+            {/* h1 tersembunyi — identitas halaman untuk SEO/screen reader; judul visual
+                "Porto Folio" di bawah cuma gambar SVG, gak kebaca sebagai heading */}
+            <h1 className="sr-only">Agus Fathurrahman Rifai — UI/UX Designer & Frontend Developer</h1>
+
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div
                 className="relative w-full md:h-screen"

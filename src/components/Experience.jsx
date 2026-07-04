@@ -114,6 +114,7 @@ export default function Experience() {
                 className="absolute exp-bg z-8 -top-8 inset-x-0 bottom-0 md:inset-auto md:bottom-190 w-full h-full object-cover md:object-fill"
             />
 
+            <h2 className="sr-only">Experience</h2>
             <img
                 src="/exp.svg"
                 alt="Experience"

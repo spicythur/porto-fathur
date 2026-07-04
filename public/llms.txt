@@ -1,0 +1,19 @@
+# Fathur Portfolio
+
+> Portfolio site for Agus Fathurrahman Rifai (Fathur), an IT student at Universitas Brawijaya specializing in UI/UX Design and Frontend Development.
+
+This is a single-page personal portfolio built with React, GSAP, and Tailwind CSS. It showcases web development projects, graphic/apparel design work, professional experience, and skills in React, Figma, GSAP, Tailwind CSS, Next.js, and TypeScript.
+
+## Sections
+
+- About: background and introduction
+- Skills: technical and design tools
+- Experience: work and community involvement (Provoks Multimedia, PKKMB, internships)
+- Projects: web development and graphic design portfolio pieces
+- Contact: email, phone, and social links
+
+## Links
+
+- GitHub: https://github.com/spicythur
+- LinkedIn: https://www.linkedin.com/in/agus-fathurrahman-rifai/
+- Instagram: https://www.instagram.com/tthuuur

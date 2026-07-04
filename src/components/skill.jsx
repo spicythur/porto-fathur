@@ -153,6 +153,7 @@ export default function Skill() {
                 >
                     <div className="relative flex items-center justify-center w-full mt-10" style={{ height: "600px" }}>
 
+                        <h2 className="sr-only">My Skill</h2>
                         <img
                             src="/skill.svg"
                             alt="My Skill"
@@ -176,22 +177,22 @@ export default function Skill() {
                         ))}
 
                         <div className="skill-doodle absolute left-40 top-120 rotate-45">
-                            <img src="/ikan.svg" alt="ikan" className="w-30" style={{ animation: "float 2s ease-in-out infinite" }} />
+                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-30" style={{ animation: "float 2s ease-in-out infinite" }} />
                         </div>
                         <div className="skill-doodle absolute right-70 bottom-30 rotate-120">
-                            <img src="/ikan.svg" alt="ikan" className="w-20" style={{ animation: "float 7s ease-out infinite" }} />
+                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-20" style={{ animation: "float 7s ease-out infinite" }} />
                         </div>
                         <div className="skill-doodle absolute right-10 -bottom-10 rotate-270">
-                            <img src="/ikan.svg" alt="ikan" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />
+                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />
                         </div>
                         <div className="skill-doodle absolute right-25 bottom-40">
-                            <img src="/kapal.svg" alt="kapal" className="w-60" style={{ animation: "float 7s ease-out infinite" }} />
+                            <img src="/kapal.svg" alt="" aria-hidden="true" className="w-60" style={{ animation: "float 7s ease-out infinite" }} />
                         </div>
 
                         <img
                             src="/fathur2.svg"
                             alt="Fathur"
-                            className="skill-photo absolute -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
+                            className="skill-photo absolute -bottom-230 -translate-x-1/3 h-[160%] object-cover mb-10 pointer-events-none"
                         />
                     </div>
                 </div>

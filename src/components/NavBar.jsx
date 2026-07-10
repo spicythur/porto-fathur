@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const NAV_LINKS = ['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'];
 
-function Squiggle() {
+function Squiggle({ active }) {
     return (
         <svg
             className="pointer-events-none absolute -bottom-2 left-0 w-full h-3 overflow-visible"
@@ -21,6 +21,7 @@ function Squiggle() {
                 fill="none"
                 strokeLinecap="round"
                 className="stroke-[#F7DF19] [stroke-width:3] [stroke-dasharray:1] [stroke-dashoffset:1] transition-[stroke-dashoffset] duration-300 ease-out group-hover:[stroke-dashoffset:0]"
+                style={active ? { strokeDashoffset: 0 } : undefined}
             />
         </svg>
     );
@@ -31,6 +32,29 @@ export default function NavBar() {
     const containerRef = useRef(null);
     const mobileMenuRef = useRef(null);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
+
+    // Scroll-spy — squiggle section aktif tetap "tergambar" tanpa perlu hover
+    useEffect(() => {
+        const sections = NAV_LINKS
+            .map((link) => document.getElementById(link.toLowerCase()))
+            .filter(Boolean);
+        if (sections.length === 0) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
+        );
+
+        sections.forEach((section) => observer.observe(section));
+        return () => observer.disconnect();
+    }, []);
 
     useGSAP(() => {
         gsap.set(navRef.current, { yPercent: -100 });
@@ -94,16 +118,18 @@ export default function NavBar() {
                     <ul className="flex gap-15 relative z-20">
                         {NAV_LINKS.map((link) => {
                             const targetId = `#${link.toLowerCase()}`;
+                            const isActive = activeSection === link.toLowerCase();
                             return (
                                 <li key={link}>
                                     <a
                                         href={targetId}
                                         onClick={(e) => handleNavClick(e, targetId)}
+                                        aria-current={isActive ? "true" : undefined}
                                         className="group relative font-[crayon] text-3xl text-white hover:text-[#F7DF19] transition-colors duration-200 inline-block cursor-pointer px-1 py-2"
                                         style={{ textShadow: "2px 2px 0px rgba(0,0,0,1)" }}
                                     >
                                         {link}
-                                        <Squiggle />
+                                        <Squiggle active={isActive} />
                                     </a>
                                 </li>
                             );

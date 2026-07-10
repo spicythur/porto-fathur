@@ -10,8 +10,12 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 const DESIGN_WIDTH = 1440;
 const DESIGN_HEIGHT = 820;
 
+const ROLES = ["UI/UX Designer", "Frontend Developer"];
+const ROLE_INTERVAL_MS = 3200;
+
 export default function Hero() {
     const container = useRef();
+    const roleRef = useRef(null);
 
     const [mobileScale, setMobileScale] = useState(
         () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
@@ -86,10 +90,31 @@ export default function Hero() {
             }
         });
 
+        // Tagline peran — gonta-ganti tiap beberapa detik (crossfade + slide kecil)
+        let roleIndex = 0;
+        const roleInterval = setInterval(() => {
+            const el = roleRef.current;
+            if (!el) return;
+            gsap.to(el, {
+                y: -10,
+                opacity: 0,
+                duration: 0.35,
+                ease: "power2.in",
+                onComplete: () => {
+                    roleIndex = (roleIndex + 1) % ROLES.length;
+                    el.textContent = ROLES[roleIndex];
+                    gsap.fromTo(el, { y: 10, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "power2.out" });
+                }
+            });
+        }, ROLE_INTERVAL_MS);
+
+        return () => clearInterval(roleInterval);
+
     }, { scope: container });
 
     return (
         <section
+            id="home"
             ref={container}
             className="relative z-10 w-full md:overflow-x-clip md:h-screen"
             style={mobileScale ? { height: `${DESIGN_HEIGHT * mobileScale}px` } : undefined}
@@ -111,12 +136,21 @@ export default function Hero() {
                     className="hero-bg absolute -top-20 w-[120%] h-[120%] object-contain"
                 />
                 {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
-                <div className="hero-text absolute top-40 md:top-60 left-40 z-10 w-[45%] flex flex-col gap-2 md:gap-8">
+                <div className="hero-text absolute top-40 md:top-50 left-40 z-10 w-[45%] flex flex-col gap-2 md:gap-8">
                     <img
                         src="/teks-porto.svg"
                         alt="Porto Folio"
                         className="hero-text-inner w-[85%]"
                     />
+
+                    {/* Tagline peran — cycle otomatis, aria-live biar screen reader ikut baca */}
+                    <p
+                        className="hero-role font-[crayon] text-lg md:text-2xl text-[#F7DF19] ml-[50px] md:ml-20"
+                        style={{ textShadow: "1px 1px 0px rgba(0,0,0,0.6)" }}
+                        aria-live="polite"
+                    >
+                        <span ref={roleRef}>{ROLES[0]}</span>
+                    </p>
 
                     {/* CTA — nilai mobile (unprefixed) dikompensasi karena wrapper ini
                         di-scale ~0.27x oleh mobileScale; md: pakai ukuran asli karena

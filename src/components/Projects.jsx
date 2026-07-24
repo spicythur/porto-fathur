@@ -1,10 +1,12 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Draggable } from 'gsap/Draggable';
+import { InertiaPlugin } from 'gsap/InertiaPlugin';
 import { useGSAP } from '@gsap/react';
 import ProjectModal from './ProjectModal';
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, useGSAP, Draggable, InertiaPlugin);
 
 const projects = [
     {
@@ -66,6 +68,7 @@ const CARD_Y_OFFSETS = ['translate-y-4', '-translate-y-3', 'translate-y-6', '-tr
 const Projects = () => {
     const wrapperRef = useRef(null);
     const stickyRef = useRef(null);
+    const dragProxyRef = useRef(null);
     const [selectedProject, setSelectedProject] = useState(null);
     const [loadedImages, setLoadedImages] = useState({});
     const [isMobile, setIsMobile] = useState(() =>
@@ -166,6 +169,41 @@ const Projects = () => {
             duration: 0.7,
             force3D: true
         }, 0.3);
+
+        // Drag-to-scrub: geser panggung pakai mouse drag, lepas → lanjut dengan
+        // inersia (InertiaPlugin) sebelum berhenti. Target Draggable adalah proxy
+        // <div> tersembunyi (bukan stickyRef/project-wrapper) — Draggable butuh
+        // elemen DOM asli buat baca/tulis style-nya (getComputedStyle dkk.), tapi
+        // kita nggak peduli transform yang dia terapkan ke proxy itu sendiri,
+        // cukup nerjemahkan this.x jadi window.scrollTo. Klik kartu tetap jalan
+        // normal karena Draggable cuma nyegat kalau gerakannya lewatin threshold.
+        const st = tl.scrollTrigger;
+        let dragStartScroll = 0;
+
+        const draggable = Draggable.create(dragProxyRef.current, {
+            type: "x",
+            trigger: stickyRef.current,
+            inertia: true,
+            onPress() {
+                dragStartScroll = window.scrollY;
+                stickyRef.current.style.cursor = 'grabbing';
+            },
+            onDrag() {
+                window.scrollTo(0, gsap.utils.clamp(st.start, st.end, dragStartScroll - this.x));
+            },
+            onThrowUpdate() {
+                window.scrollTo(0, gsap.utils.clamp(st.start, st.end, dragStartScroll - this.x));
+            },
+            onRelease() {
+                stickyRef.current.style.cursor = '';
+            },
+        })[0];
+
+        stickyRef.current.style.cursor = 'grab';
+
+        return () => {
+            draggable?.kill();
+        };
 
     }, { scope: wrapperRef, dependencies: [isMobile] });
 
@@ -302,6 +340,9 @@ const Projects = () => {
                     className="absolute top-0 left-0 w-full overflow-visible"
                     style={{ height: `${stageH}px`, willChange: 'transform' }}
                 >
+                    {/* Proxy Draggable — nggak kelihatan, cuma buat dilacak GSAP */}
+                    <div ref={dragProxyRef} className="absolute top-0 left-0 w-px h-px opacity-0 pointer-events-none" aria-hidden="true" />
+
                     {/* Background pantai — mengisi penuh panggung (setinggi viewport) */}
                     <img
                         src="/pantai.webp"

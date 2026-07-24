@@ -176,11 +176,11 @@ export default function Skill() {
                             </div>
                         ))}
 
-                        <div className="skill-doodle absolute left-40 top-120 rotate-45">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-30" style={{ animation: "float 2s ease-in-out infinite" }} />
+                        <div className="skill-doodle absolute left-0 top-120 rotate-45">
+                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-50" style={{ animation: "float 2s ease-in-out infinite" }} />
                         </div>
-                        <div className="skill-doodle absolute right-70 bottom-30 rotate-120">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-20" style={{ animation: "float 7s ease-out infinite" }} />
+                        <div className="skill-doodle absolute right-50 bottom-20 rotate-120">
+                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-40" style={{ animation: "float 7s ease-out infinite" }} />
                         </div>
                         <div className="skill-doodle absolute right-10 -bottom-10 rotate-270">
                             <img src="/ikan.svg" alt="" aria-hidden="true" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />

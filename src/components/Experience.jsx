@@ -187,20 +187,20 @@ export default function Experience() {
     }, { scope: container, dependencies: [pathData] });
 
     return (
-        <section id="experience" ref={container} className="relative pb-10 -mt-4 md:mt-0 bg-[#2E8E37] md:bg-white md:top-195 overflow-hidden md:overflow-visible">
+        <section id="experience" ref={container} className="relative pb-10 -mt-4 md:mt-0 bg-[#2E8E37] md:bg-white md:top-192 overflow-hidden md:overflow-visible">
 
             <img
                 src="/bgexp.svg"
                 alt=""
                 aria-hidden="true"
-                className="absolute exp-bg z-8 -top-8 inset-x-0 bottom-0 md:inset-auto md:bottom-190 w-full h-full object-cover md:object-fill"
+                className="absolute exp-bg z-8 -top-8 inset-x-0 bottom-0 md:inset-auto md:bottom-200 w-full h-full object-cover md:object-fill"
             />
 
             <h2 className="sr-only">Experience</h2>
             <img
                 src="/exp.svg"
                 alt="Experience"
-                className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-4 md:top-8 pt-2 md:pt-8"
+                className="exp-title relative z-10 w-[70%] md:w-[50%] mx-auto top-4 md:top-2 pt-2 md:pt-8"
             />
 
             {/* Scattered layout — desktop penuh, mobile di-scale agar sama persis */}

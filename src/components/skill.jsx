@@ -176,11 +176,8 @@ export default function Skill() {
                             </div>
                         ))}
 
-                        <div className="skill-doodle absolute left-0 bottom-20 rotate-45">
+                        <div className="skill-doodle absolute left-0 top-120 rotate-45">
                             <img src="/ikan.svg" alt="" aria-hidden="true" className="w-50" style={{ animation: "float 2s ease-in-out infinite" }} />
-                        </div>
-                        <div className="skill-doodle absolute left-20 bottom-60 -rotate-30">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-36" style={{ animation: "float 5s ease-in-out infinite 0.5s" }} />
                         </div>
                         <div className="skill-doodle absolute right-50 bottom-20 rotate-120">
                             <img src="/ikan.svg" alt="" aria-hidden="true" className="w-40" style={{ animation: "float 7s ease-out infinite" }} />
@@ -188,17 +185,8 @@ export default function Skill() {
                         <div className="skill-doodle absolute right-10 -bottom-10 rotate-270">
                             <img src="/ikan.svg" alt="" aria-hidden="true" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />
                         </div>
-                        <div className="skill-doodle absolute left-40 -bottom-16 rotate-60">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-28" style={{ animation: "float 6s ease-in-out infinite 1s" }} />
-                        </div>
-                        <div className="skill-doodle absolute right-25 bottom-40 -rotate-15">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-44" style={{ animation: "float 5.5s ease-in-out infinite 0.8s" }} />
-                        </div>
-                        <div className="skill-doodle absolute left-60 -bottom-24 rotate-20">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-32" style={{ animation: "float 3.5s ease-in-out infinite 1.2s" }} />
-                        </div>
-                        <div className="skill-doodle absolute right-80 -bottom-8 -rotate-40">
-                            <img src="/ikan.svg" alt="" aria-hidden="true" className="w-24" style={{ animation: "float 4.2s ease-in-out infinite 0.3s" }} />
+                        <div className="skill-doodle absolute right-25 bottom-40">
+                            <img src="/kapal.svg" alt="" aria-hidden="true" className="w-60" style={{ animation: "float 7s ease-out infinite" }} />
                         </div>
 
                         <img

@@ -6,14 +6,16 @@ This is a single-page personal portfolio built with React, GSAP, and Tailwind CS
 
 ## Sections
 
-- About: background and introduction
-- Skills: technical and design tools
-- Experience: work and community involvement (Provoks Multimedia, PKKMB, internships)
-- Projects: web development and graphic design portfolio pieces
-- Contact: email, phone, and social links
+- [Home](https://porto-fathur.vercel.app/): Portfolio landing page with hero section
+- [About](https://porto-fathur.vercel.app/#about): Background, education, and personal introduction
+- [Skills](https://porto-fathur.vercel.app/#skills): Technical skills and design tools
+- [Experience](https://porto-fathur.vercel.app/#experience): Work and community involvement (Provoks Multimedia, PKKMB, internships)
+- [Projects](https://porto-fathur.vercel.app/#projects): Portfolio of web development and graphic design projects
+- [Contact](https://porto-fathur.vercel.app/#contact): Email, phone, and social links
 
 ## Links
 
 - GitHub: https://github.com/spicythur
 - LinkedIn: https://www.linkedin.com/in/agus-fathurrahman-rifai/
 - Instagram: https://www.instagram.com/tthuuur
+- Twitter/X: https://x.com/tthuuur

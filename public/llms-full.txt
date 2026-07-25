@@ -1,0 +1,48 @@
+# Fathur Portfolio — Full Description
+
+> Full detailed description for AI search engines and language models.
+
+## About
+
+Agus Fathurrahman Rifai (known as Fathur) is an IT student at Universitas Brawijaya, Indonesia, specializing in UI/UX Design and Frontend Development. He creates playful, animated web experiences using modern web technologies.
+
+## Skills
+
+- **Frontend**: React, Next.js, TypeScript, Tailwind CSS, Vite
+- **Animation**: GSAP (ScrollTrigger, SplitText, Draggable, Flip), Framer Motion
+- **Design**: Figma, Adobe Illustrator, Adobe Photoshop, Canva
+- **Tools**: Git, Vercel, Lenis Smooth Scroll
+
+## Projects
+
+1. **Porto Fathur** — Personal portfolio with GSAP scroll animations (React, Tailwind, GSAP)
+2. **Fusion AI** — AI-powered text-to-3D model generator for Autodesk Fusion 360 (TypeScript, Express, React)
+3. **Purvo** — Bilingual brand landing page with GSAP scroll animations (React, Vite, GSAP)
+4. **Shima Gold** — Elegant landing page for a gold jewelry brand (HTML, CSS, JavaScript)
+5. **Plantropic** — B2B SaaS platform for industrial water monitoring and ESG data (TypeScript, Next.js, Tailwind)
+6. **GIS Bootcamp** — Event poster for Provoks Multimedia bootcamp (Adobe Illustrator, Photoshop)
+7. **Various graphic design projects** — Brand awareness graphics, apparel designs, event posters
+
+## Experience
+
+- **Provoks Multimedia** — Community and event organization
+- **PKKMB Universitas Brawijaya** — Student orientation event
+- Various internship and freelance web development work
+
+## Contact
+
+- Email: Available via contact form on site
+- GitHub: https://github.com/spicythur
+- LinkedIn: https://www.linkedin.com/in/agus-fathurrahman-rifai/
+- Instagram: https://www.instagram.com/tthuuur
+- Twitter/X: https://x.com/tthuuur
+
+## Technical Details
+
+- Built with React 19 + Vite
+- Animations powered by GSAP (ScrollTrigger, SplitText, Draggable, InertiaPlugin)
+- Smooth scrolling via Lenis
+- Styled with Tailwind CSS
+- Custom font: Crayon (hand-drawn style)
+- Responsive design with desktop zoom scaling
+- Preloader with smooth transition

@@ -95,9 +95,9 @@ export default function Hero() {
             className="relative z-10 w-full md:overflow-x-clip md:h-screen"
             style={mobileScale ? { height: `${DESIGN_HEIGHT * mobileScale}px` } : undefined}
         >
-            {/* h1 tersembunyi — identitas halaman untuk SEO/screen reader; judul visual
-                "Porto Folio" di bawah cuma gambar SVG, gak kebaca sebagai heading */}
-            <h1 className="sr-only">Agus Fathurrahman Rifai — UI/UX Designer & Frontend Developer</h1>
+            {/* h1 untuk SEO — visual "Porto Folio" di bawah cuma gambar SVG,
+                jadi tambahin h1 real biar crawlable, tapi sembunyiin dari layout */}
+            <h1 className="sr-only">Porto Folio — Agus Fathurrahman Rifai</h1>
 
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div
@@ -109,6 +109,8 @@ export default function Hero() {
                     src="/bg4.svg"
                     alt=""
                     aria-hidden="true"
+                    width="1728"
+                    height="984"
                     className="hero-bg absolute -top-20 w-[120%] h-[120%] object-contain"
                 />
                 {/* Teks Porto Folio — wrapper (scrub) > img (float) */}
@@ -116,6 +118,8 @@ export default function Hero() {
                     <img
                         src="/teks-porto.svg"
                         alt="Porto Folio"
+                        width="400"
+                        height="120"
                         className="hero-text-inner w-[85%]"
                     />
 

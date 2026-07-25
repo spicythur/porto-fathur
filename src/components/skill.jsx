@@ -185,14 +185,14 @@ export default function Skill() {
                         <div className="skill-doodle absolute right-10 -bottom-10 rotate-270">
                             <img src="/ikan.svg" alt="" aria-hidden="true" className="w-50" style={{ animation: "float 4.5s ease-in-out infinite" }} />
                         </div>
-                        <div className="skill-doodle absolute right-25 bottom-40">
+                        <div className="skill-doodle absolute right-25 bottom-40 ">
                             <img src="/kapal.svg" alt="" aria-hidden="true" className="w-60" style={{ animation: "float 7s ease-out infinite" }} />
                         </div>
 
                         <img
                             src="/fathur2.svg"
                             alt="Fathur"
-                            className="skill-photo absolute -bottom-230 -translate-x-1/3 h-[160%] object-cover mb-10 pointer-events-none"
+                            className="skill-photo absolute left-1/2 -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
                         />
                     </div>
                 </div>

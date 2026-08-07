@@ -123,7 +123,7 @@ export default function ProjectModal({ project, projects, onClose, onSelect }) {
                 <div className="w-full aspect-video bg-[#e8e5dd] overflow-hidden shrink-0">
                     <img
                         src={project.imageUrl}
-                        alt={project.title}
+                        alt={project.alt || project.title}
                         className="w-full h-full object-contain"
                     />
                 </div>

@@ -13,7 +13,8 @@ const projects = [
         id: 1,
         title: 'Porto Fathur',
         imageUrl: '/project/porto.webp',
-        description: 'Personal portfolio website with creative GSAP scroll animations and smooth UI. Built with React, Tailwind CSS, and Lenis.',
+        alt: 'Porto Fathur portfolio website dengan GSAP scroll animation dan responsive design',
+        description: 'Portfolio website Fathur dengan GSAP scroll animation dan responsive design. Personal portfolio built with React, Tailwind CSS, and Lenis to showcase web development, UI/UX design, and graphic design work.',
         tech: ['React', 'Tailwind', 'GSAP'],
         liveUrl: 'https://porto-fathur.vercel.app',
         githubUrl: 'https://github.com/spicythur/porto-fathur',
@@ -22,7 +23,8 @@ const projects = [
         id: 2,
         title: 'Fusion AI',
         imageUrl: '/project/Fusion.webp',
-        description: 'AI-powered text-to-3D model generator for Autodesk Fusion 360. Create gears, brackets, and drone frames from natural language prompts.',
+        alt: 'Fusion AI - AI text-to-3D model generator interface',
+        description: 'Fusion AI adalah AI text-to-3D model generator untuk Autodesk Fusion 360. Generate gears, brackets, dan drone frames dari natural language prompts menggunakan TypeScript, Express, dan React.',
         tech: ['TypeScript', 'Express', 'React'],
         liveUrl: null,
         githubUrl: 'https://github.com/spicythur/Fusion-ai',
@@ -31,7 +33,8 @@ const projects = [
         id: 3,
         title: 'Purvo',
         imageUrl: '/project/Purvo.webp',
-        description: 'Bilingual (EN/ID) brand landing page with GSAP scroll animations, showcase, and story sections.',
+        alt: 'Purvo bilingual brand landing page dengan GSAP scroll animations',
+        description: 'Bilingual (EN/ID) brand landing page dengan GSAP scroll animations, showcase, dan story sections. Dibangun dengan React dan Vite untuk pengalaman brand yang halus dan penuh animasi.',
         tech: ['React', 'Vite', 'GSAP'],
         liveUrl: 'https://lepurvo.vercel.app/',
         githubUrl: 'https://github.com/spicythur/Purvo',
@@ -40,22 +43,23 @@ const projects = [
         id: 4,
         title: 'Shima Gold',
         imageUrl: '/project/ShimaGold.webp',
-        description: 'Elegant landing page for Shima Gold, a gold jewelry brand. Built with vanilla HTML, CSS, and JavaScript.',
+        alt: 'Shima Gold landing page brand perhiasan emas yang elegan',
+        description: 'Landing page elegan untuk Shima Gold, brand perhiasan emas. Dibangun dengan vanilla HTML, CSS, dan JavaScript dengan layout premium yang fokus pada konversi.',
         tech: ['HTML', 'CSS', 'JavaScript'],
         liveUrl: 'https://shima-gold-website.vercel.app',
         githubUrl: 'https://github.com/spicythur/shima-gold-website',
     },
-    { id: 15, title: 'Plantropic', imageUrl: '/project/Plantropic.webp', description: 'B2B SaaS platform for real-time industrial water monitoring, ESG data management, and carbon footprint analytics.', tech: ['TypeScript', 'Next.js', 'Tailwind'], liveUrl: 'https://plantropic-b2-b-industrial-water-ma.vercel.app/', githubUrl: 'https://github.com/darariaisy12/-Plantropic-B2B-Industrial-Water-Management-SaaS-' },
-    { id: 5,  title: 'GIS Bootcamp',          imageUrl: '/project/Hasil1.webp',  description: 'Event poster for Provoks Multimedia bootcamp — "Instalasi GIS Menggunakan Laravel". Bold speaker-highlight layout designed to drive registrations via Discord.',           tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
-    { id: 6,  title: 'Apa itu Provoks?',      imageUrl: '/project/Hasil2.webp',  description: 'Brand awareness graphic introducing Provoks Multimedia & Event to new audiences. Retro-textured poster with bold typography and the iconic Provoks hexagon logo.',        tech: ['Adobe Illustrator'],                   liveUrl: null, githubUrl: null },
-    { id: 7,  title: 'Mentoring Session',     imageUrl: '/project/Hasil3.webp',  description: 'Event poster for a Provoks mentoring session at Vokasi Dieng. Presented in a phone-mockup frame with distressed typography for an edgy, high-energy feel.',             tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
-    { id: 8,  title: 'DragNDrop Promo',       imageUrl: '/project/Hasil4.webp',  description: 'Social media promo for Drag n Drop studio — "Butuh jasa pembuatan Website?". Clean orange-and-blue split layout with device mockup and a strong call-to-action.',          tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
-    { id: 9,  title: 'DragNDrop Web Dark',    imageUrl: '/project/Hasil5.webp',  description: 'Dark-themed service promo for Drag n Drop studio showcasing a multi-device responsive website mockup. Crafted to highlight professionalism and modern web aesthetics.',  tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
-    { id: 10, title: 'DragNDrop Web v2',      imageUrl: '/project/Hasil6.webp',  description: 'Second variant of the Drag n Drop Web Design service poster with a refined device lineup and polished color treatment for Instagram and digital campaigns.',             tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
-    { id: 11, title: 'Extraliminary Jacket',  imageUrl: '/project/Hasil7.webp',  description: 'Varsity jacket design in navy and white with a tribal bear illustration on the back and "Beyond the Limit" script on the chest. Full front-and-back mockup in Illustrator.', tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
-    { id: 12, title: 'Provoks Racing Jacket', imageUrl: '/project/Hasil8.webp',  description: 'Racing-style bomber jacket for the Provoks Vokasi Programmer community. Features a retro game-character illustration and bold "PROVOKS" branding across the front.',    tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
-    { id: 13, title: 'Provoks Work Jacket',   imageUrl: '/project/Hasil9.webp',  description: 'Retro work jacket for Provoks in cream and orange with racing stripes and a cat mascot patch. Back print reads "Think with Logic and Creative" — the Provoks motto.',    tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
-    { id: 14, title: 'Vokasioner Tee',        imageUrl: '/project/Hasil10.webp', description: 'T-shirt design for the Vokasioner community. Front features the "Adaptive" warrior mascot; back carries "Born to Create, Build to Innovate" in bold arc lettering.',     tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
+    { id: 15, title: 'Plantropic', imageUrl: '/project/Plantropic.webp', alt: 'Plantropic B2B SaaS dashboard industrial water monitoring dan ESG analytics', description: 'Platform B2B SaaS untuk real-time industrial water monitoring, ESG data management, dan carbon footprint analytics. Dibangun dengan TypeScript, Next.js, dan Tailwind CSS untuk performa enterprise.', tech: ['TypeScript', 'Next.js', 'Tailwind'], liveUrl: 'https://plantropic-b2-b-industrial-water-ma.vercel.app/', githubUrl: 'https://github.com/darariaisy12/-Plantropic-B2B-Industrial-Water-Management-SaaS-' },
+    { id: 5,  title: 'GIS Bootcamp',          imageUrl: '/project/Hasil1.webp',  alt: 'GIS Bootcamp poster event Provoks Multimedia instalasi GIS Laravel',  description: 'Poster event untuk bootcamp Provoks Multimedia — "Instalasi GIS Menggunakan Laravel". Layout bold yang menonjolkan pembicara untuk mendorong registrasi via Discord. Dirancang dengan Adobe Illustrator dan Photoshop.',           tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
+    { id: 6,  title: 'Apa itu Provoks?',      imageUrl: '/project/Hasil2.webp',  alt: 'Apa itu Provoks brand awareness poster Provoks Multimedia',      description: 'Graphic brand awareness yang memperkenalkan Provoks Multimedia & Event ke audiens baru. Poster retro-textured dengan tipografi bold dan logo hexagon ikonik Provoks. Didesain dengan Adobe Illustrator.',        tech: ['Adobe Illustrator'],                   liveUrl: null, githubUrl: null },
+    { id: 7,  title: 'Mentoring Session',     imageUrl: '/project/Hasil3.webp',  alt: 'Mentoring Session poster event Provoks Vokasi Dieng',     description: 'Poster event untuk mentoring session Provoks di Vokasi Dieng. Disajikan dalam frame phone-mockup dengan tipografi distressed untuk nuansa edgy dan high-energy. Dibuat dengan Adobe Illustrator dan Photoshop.',             tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
+    { id: 8,  title: 'DragNDrop Promo',       imageUrl: '/project/Hasil4.webp',  alt: 'DragNDrop Promo social media poster jasa pembuatan website',       description: 'Promo social media untuk studio Drag n Drop — "Butuh jasa pembuatan Website?". Layout split orange-and-blue yang bersih dengan device mockup dan call-to-action kuat. Didesain dengan Adobe Illustrator dan Photoshop.',          tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
+    { id: 9,  title: 'DragNDrop Web Dark',    imageUrl: '/project/Hasil5.webp',  alt: 'DragNDrop Web Dark poster promo layanan web design tema gelap',    description: 'Promo layanan bertema dark untuk studio Drag n Drop yang menampilkan mockup website responsif multi-device. Dirancang untuk menonjolkan profesionalisme dan estetika web modern.',  tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
+    { id: 10, title: 'DragNDrop Web v2',      imageUrl: '/project/Hasil6.webp',  alt: 'DragNDrop Web v2 poster layanan web design varian kedua',      description: 'Varian kedua poster layanan Web Design Drag n Drop dengan lineup device yang lebih rapi dan treatment warna yang lebih halus untuk Instagram dan kampanye digital.',             tech: ['Adobe Illustrator', 'Photoshop'],      liveUrl: null, githubUrl: null },
+    { id: 11, title: 'Extraliminary Jacket',  imageUrl: '/project/Hasil7.webp',  alt: 'Extraliminary Jacket desain varsity jacket navy putih ilustrasi beruang',  description: 'Desain varsity jacket navy dan putih dengan ilustrasi beruang tribal di punggung dan tulisan "Beyond the Limit" di dada. Mockup depan-belakang lengkap dibuat di Illustrator.', tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
+    { id: 12, title: 'Provoks Racing Jacket', imageUrl: '/project/Hasil8.webp',  alt: 'Provoks Racing Jacket desain bomber jacket komunitas Provoks', description: 'Bomber jacket ala racing untuk komunitas Provoks Vokasi Programmer. Menampilkan ilustrasi retro game-character dan branding "PROVOKS" bold di bagian depan. Didesain dengan Adobe Illustrator.',    tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
+    { id: 13, title: 'Provoks Work Jacket',   imageUrl: '/project/Hasil9.webp',  alt: 'Provoks Work Jacket desain work jacket retro krim oranye',   description: 'Work jacket retro untuk Provoks dalam warna krim dan oranye dengan racing stripes dan patch mascot kucing. Print belakang berbunyi "Think with Logic and Creative" — motto Provoks.',    tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
+    { id: 14, title: 'Vokasioner Tee',        imageUrl: '/project/Hasil10.webp', alt: 'Vokasioner Tee desain kaos komunitas Vokasioner mascot warrior',        description: 'Desain kaos untuk komunitas Vokasioner. Depan menampilkan mascot warrior "Adaptive"; belakang membawa tulisan "Born to Create, Build to Innovate" dalam arc lettering bold. Dibuat dengan Adobe Illustrator.',     tech: ['Adobe Illustrator', 'Apparel Design'], liveUrl: null, githubUrl: null },
 ];
 
 const PANEL_WIDTH = 1000;
@@ -286,14 +290,14 @@ const Projects = () => {
                                                 )}
                                                 <img
                                                     src={project.imageUrl}
-                                                    alt={project.title}
+                                                    alt={project.alt || project.title}
                                                     className={`w-full h-full object-contain transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'}`}
                                                     onLoad={() => handleImageLoad(project.id)}
                                                 />
                                             </div>
                                         </div>
                                         {/* Caption */}
-                                        <div className="relative px-2 pt-1 pb-2 border-t border-[#2E8E37]/30" style={{ height: '25%' }}>
+                                        <div className="relative px-2 pt-1 pb-2 border-t border-[#2E8E37]/30" style={{ height: '32%' }}>
                                             <h3 className="text-xs font-[crayon] text-[#2E8E37] uppercase leading-none tracking-wide">
                                                 {project.title}
                                             </h3>
@@ -307,6 +311,9 @@ const Projects = () => {
                                                     </span>
                                                 ))}
                                             </div>
+                                            <p className="mt-1 pr-6 text-[7px] leading-[1.3] text-[#2E8E37]/70 font-[crayon] line-clamp-2">
+                                                {project.description}
+                                            </p>
                                             <span className="absolute bottom-1.5 right-2 w-5 h-5 rounded-full border border-[#2E8E37]/25 text-[#2E8E37]/25 font-[crayon] text-[8px] flex items-center justify-center">✦</span>
                                         </div>
                                     </div>
@@ -389,7 +396,7 @@ const Projects = () => {
                                     <div
                                         onClick={() => setSelectedProject(project)}
                                         className={`project-card relative w-[350px] bg-[#F4F1EA] shadow-xl flex flex-col hover:scale-110 hover:rotate-0 hover:z-50 ${rotation} ${yOffset} cursor-pointer rounded-sm transition-all duration-300`}
-                                        style={{ height: '350px' }}
+                                        style={{ height: '395px' }}
                                     >
                                         {/* Photo with inner frame */}
                                         <div className="px-3 pt-3 flex-1 min-h-0">
@@ -399,14 +406,14 @@ const Projects = () => {
                                                 )}
                                                 <img
                                                     src={project.imageUrl}
-                                                    alt={project.title}
+                                                    alt={project.alt || project.title}
                                                     className={`w-full h-full object-contain transition-opacity duration-500 ${loadedImages[project.id] ? 'opacity-100' : 'opacity-0'}`}
                                                     onLoad={() => handleImageLoad(project.id)}
                                                 />
                                             </div>
                                         </div>
                                         {/* Caption */}
-                                        <div className="relative px-3 pt-2 pb-3 border-t-2 border-[#2E8E37]/30" style={{ height: '90px' }}>
+                                        <div className="relative px-3 pt-2 pb-3 border-t-2 border-[#2E8E37]/30" style={{ height: '150px' }}>
                                             <h3 className="text-2xl font-[crayon] text-[#2E8E37] uppercase leading-none tracking-wide">
                                                 {project.title}
                                             </h3>
@@ -420,6 +427,9 @@ const Projects = () => {
                                                     </span>
                                                 ))}
                                             </div>
+                                            <p className="mt-1.5 pr-8 text-[10px] leading-snug text-[#2E8E37]/70 font-[crayon] line-clamp-3">
+                                                {project.description}
+                                            </p>
                                             <span className="absolute bottom-2.5 right-3 w-7 h-7 rounded-full border-2 border-[#2E8E37]/25 text-[#2E8E37]/25 font-[crayon] text-xs flex items-center justify-center">✦</span>
                                         </div>
                                     </div>

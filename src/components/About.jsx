@@ -85,6 +85,33 @@ export default function About() {
             }
         });
 
+        // Stiker doodle membesar dan berputar (kebalikan arah dari bunga)
+        gsap.from(".about-stiker", {
+            scrollTrigger: {
+                trigger: container.current,
+                start: "top 40%",
+                toggleActions: "play none none reverse"
+            },
+            scale: 0,
+            rotation: 90,
+            opacity: 0,
+            duration: 1,
+            ease: "back.out(2)",
+            delay: 0.9
+        });
+
+        // Scrub rotation pada stiker
+        gsap.to(".about-stiker", {
+            rotation: -30,
+            ease: "none",
+            scrollTrigger: {
+                trigger: container.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 1.5,
+            }
+        });
+
         // Scrub: foto Fathur sedikit miring saat scroll
         gsap.to(".about-photo", {
             rotation: -2,
@@ -142,6 +169,16 @@ export default function About() {
                     aria-hidden="true"
                     className="about-doodle w-24 md:w-40 self-center md:self-end mt-6 md:mb-190 md:-mr-10"
                 />
+
+
+                {/* Stiker doodle */}
+                <img
+                    src="/stiker.webp"
+                    alt=""
+                    aria-hidden="true"
+                    className="about-stiker absolute top-24 md:top-28 right-2 md:right-10 w-14 md:w-36 z-10 pointer-events-none"
+                />
+
 
             </div>
 

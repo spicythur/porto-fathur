@@ -192,7 +192,7 @@ export default function Skill() {
                         <img
                             src="/fathur2.webp"
                             alt="Fathur"
-                            className="skill-photo absolute left-1/2 -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
+                            className="skill-photo absolute left-1/3 -bottom-230 -translate-x-1/2 h-[160%] object-contain mb-10 pointer-events-none"
                         />
                     </div>
                 </div>

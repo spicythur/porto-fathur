@@ -259,7 +259,7 @@ export default function Experience() {
                             </div>
                         </div>
 
-                        <img src="/panah.svg" alt="" className="exp-doodle absolute top-20 left-72 w-16" />
+                        <img src="/stiker.webp" alt="" className="exp-doodle absolute top-20 left-72 w-20" />
                     </div>
                 </div>
             </div>

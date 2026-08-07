@@ -58,6 +58,29 @@ export default function Contact() {
             }
         });
 
+        // Stiker doodle: pop-in + float melayang
+        gsap.from(".contact-stiker", {
+            scale: 0,
+            rotation: -90,
+            opacity: 0,
+            duration: 0.9,
+            ease: "back.out(2)",
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: container.current,
+                start: isMobile ? "top 85%" : "top 60%",
+            }
+        });
+
+        gsap.to(".contact-stiker", {
+            y: -12,
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: 1
+        });
+
         // Button idle pulse
         const btn = btnRef.current;
         if (btn) {
@@ -103,6 +126,14 @@ export default function Contact() {
 
             {/* Konten */}
             <div className="relative z-10 flex flex-col items-center justify-center py-12 md:py-20 pb-16 md:pb-24 gap-2 md:gap-6 min-h-[55vh] md:min-h-screen">
+
+                {/* Stiker doodle - samping judul */}
+                <img
+                    src="/stiker.webp"
+                    alt=""
+                    aria-hidden="true"
+                    className="contact-stiker absolute top-6 right-3 md:top-24 md:right-24 w-14 md:w-40 pointer-events-none"
+                />
 
                 {/* Judul */}
                 <h2

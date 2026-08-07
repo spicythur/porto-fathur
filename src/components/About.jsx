@@ -151,7 +151,15 @@ export default function About() {
                 </div>
 
                 {/* Kanan / Bawah (mobile) - Deskripsi */}
-                <div className="flex flex-col w-full md:w-1/2 justify-center gap-2 md:gap-10 pt-0 md:pt-20 md:mt-70 px-2 md:px-0">
+                <div className="flex flex-col w-full md:w-1/2 justify-center gap-2 md:gap-10 pt-0 md:pt-20 md:mt-30 px-2 md:px-0">
+
+                    {/* Stiker doodle - di atas tulisan deskripsi */}
+                    <img
+                        src="/stiker.webp"
+                        alt=""
+                        aria-hidden="true"
+                        className="about-stiker order-1 md:order-first w-20 md:w-52 self-center md:self-start md:ml-6 pointer-events-none"
+                    />
 
                     <p className="about-text text-[#F7DF19] text-1 md:text-2xl leading-relaxed font-[crayon] text-center md:text-left">
                         <span className="text-2xl md:text-5xl">Hi!</span> I am Agus Fathurrahman Rifai usually called Fathur. I am an Information Technology student at Universitas Brawijaya, originally from Jakarta.
@@ -167,17 +175,10 @@ export default function About() {
                     src="/bunga.svg"
                     alt=""
                     aria-hidden="true"
-                    className="about-doodle w-24 md:w-40 self-center md:self-end mt-6 md:mb-190 md:-mr-10"
+                    className="about-doodle hidden md:block w-24 md:w-40 self-center md:self-end mt-6 md:mb-190 md:-mr-10"
                 />
 
 
-                {/* Stiker doodle */}
-                <img
-                    src="/stiker.webp"
-                    alt=""
-                    aria-hidden="true"
-                    className="about-stiker absolute top-24 md:top-28 right-2 md:right-10 w-14 md:w-36 z-10 pointer-events-none"
-                />
 
 
             </div>

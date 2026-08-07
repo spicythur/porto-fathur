@@ -60,6 +60,24 @@ export default function Hero() {
             delay: 0.5
         });
 
+        // Stiker doodle: pop-in lalu melayang terus
+        gsap.from(".hero-stiker", {
+            scale: 0,
+            rotation: -90,
+            opacity: 0,
+            duration: 1,
+            ease: "back.out(2)",
+            delay: 1.2
+        });
+        gsap.to(".hero-stiker", {
+            y: 18,
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            delay: 1.6
+        });
+
         // Scrub parallax: background bergerak lebih lambat saat scroll
         gsap.to(".hero-bg", {
             y: -150,
@@ -140,6 +158,14 @@ export default function Hero() {
                         </a>
                     </div>
                 </div>
+
+                {/* Stiker doodle - kanan atas */}
+                <img
+                    src="/stiker.webp"
+                    alt=""
+                    aria-hidden="true"
+                    className="hero-stiker absolute top-24 right-16 md:right-24 w-20 md:w-44 z-10 pointer-events-none"
+                />
             </div>
 
         </section>

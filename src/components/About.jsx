@@ -116,7 +116,7 @@ export default function About() {
                     />
 
                     <img
-                        src="/fathur.svg"
+                        src="/fathur.webp"
                         alt="Fathur"
                         className="about-photo w-[50%] md:w-full object-contain mx-auto md:ml-0 -mt-4 md:mt-0 pointer-events-none"
                     />

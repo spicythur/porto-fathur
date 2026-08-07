@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Archived orphaned assets (kept for recovery, not deployed)
+_archive
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

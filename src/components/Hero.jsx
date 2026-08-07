@@ -97,7 +97,8 @@ export default function Hero() {
         >
             {/* h1 untuk SEO — visual "Porto Folio" di bawah cuma gambar SVG,
                 jadi tambahin h1 real biar crawlable, tapi sembunyiin dari layout */}
-            <h1 className="sr-only">Porto Folio — Agus Fathurrahman Rifai</h1>
+            <h1 className="sr-only">Fathur — UI/UX Designer & Frontend Developer</h1>
+            <p className="sr-only">Portfolio of Agus Fathurrahman Rifai — IT student at Universitas Brawijaya crafting playful, animated web experiences with React, GSAP, and Tailwind CSS.</p>
 
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div
@@ -106,7 +107,7 @@ export default function Hero() {
             >
                 {/* Background foto alam */}
                 <img
-                    src="/bg4.svg"
+                    src="/bg4.webp"
                     alt=""
                     aria-hidden="true"
                     width="1728"

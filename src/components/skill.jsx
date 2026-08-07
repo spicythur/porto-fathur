@@ -190,7 +190,7 @@ export default function Skill() {
                         </div>
 
                         <img
-                            src="/fathur2.svg"
+                            src="/fathur2.webp"
                             alt="Fathur"
                             className="skill-photo absolute left-1/2 -bottom-230 -translate-x-1/2 h-[160%] object-cover mb-10 pointer-events-none"
                         />

@@ -125,19 +125,19 @@ export default function Contact() {
             />
 
             {/* Konten */}
-            <div className="relative z-10 flex flex-col items-center justify-center py-12 md:py-20 pb-16 md:pb-24 gap-2 md:gap-6 min-h-[55vh] md:min-h-screen">
+            <div className="relative z-10 flex flex-col items-center justify-center py-12 md:py-80 pb-16 md:pb-24 gap-2 md:gap-6 min-h-[55vh] md:min-h-screen">
 
                 {/* Stiker doodle - samping judul */}
                 <img
-                    src="/stiker.webp"
+                    src="/foot.webp"
                     alt=""
                     aria-hidden="true"
-                    className="contact-stiker absolute top-6 right-3 md:top-24 md:right-24 w-14 md:w-40 pointer-events-none"
+                    className="contact-stiker absolute top-6 right-3 md:top-5 md:-left-70 w-14 md:w-200  pointer-events-none"
                 />
 
                 {/* Judul */}
                 <h2
-                    className="contact-item text-5xl md:text-7xl text-[#F7DF19] text-center"
+                    className="contact-item text-5xl md:text-7xl  text-[#F7DF19] text-center"
                     style={{ fontFamily: "crayon, sans-serif" }}
                 >
                     Contact Me!

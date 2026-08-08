@@ -161,11 +161,14 @@ export default function About() {
                         className="about-stiker order-1 md:order-first w-20 md:w-52 self-center md:self-start md:ml-6 pointer-events-none"
                     />
 
-                    <p className="about-text text-[#F7DF19] text-1 md:text-2xl leading-relaxed font-[crayon] text-center md:text-left">
-                        <span className="text-2xl md:text-5xl">Hi!</span> I am Agus Fathurrahman Rifai usually called Fathur. I am an Information Technology student at Universitas Brawijaya, originally from Jakarta.
+                    <p className="about-text text-[#F7DF19] text-1 md:text-xl leading-relaxed font-[crayon] text-center md:text-left">
+                        <span className="text-2xl md:text-3xl">Hi!</span> I am Agus Fathurrahman Rifai usually called Fathur a UI/UX Designer & Frontend Developer. I am an Information Technology student at Universitas Brawijaya, originally from Jakarta.
                     </p>
-                    <p className="about-text text-[#F7DF19] text-1 md:text-2xl leading-relaxed font-[crayon] text-center md:text-left">
-                        And also I have a deep passion for bridging the gap between functionality and aesthetics through UI/UX Design and Graphic Design. Beyond visuals, I am also an enthusiast in coding, which allows me to understand.
+                    <p className="about-text text-[#F7DF19] text-1 md:text-xl leading-relaxed font-[crayon] text-center md:text-left">
+                        I bridge the gap between functionality and aesthetics through UI/UX Design, Graphic Design, and Frontend Development. Beyond visuals, I love coding — building fast, playful web experiences with React, Next.js, GSAP, and Tailwind CSS.
+                    </p>
+                    <p className="about-text text-[#F7DF19] text-1 md:text-xl leading-relaxed font-[crayon] text-center md:text-left">
+                        I also craft event posters, branding, and apparel design for communities like Provoks Multimedia (PROVOKS UB). Open for freelance jasa pembuatan website, desain poster event, dan UI/UX design.
                     </p>
 
                 </div>

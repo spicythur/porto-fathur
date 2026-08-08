@@ -115,8 +115,8 @@ export default function Hero() {
         >
             {/* h1 untuk SEO — visual "Porto Folio" di bawah cuma gambar SVG,
                 jadi tambahin h1 real biar crawlable, tapi sembunyiin dari layout */}
-            <h1 className="sr-only">Fathur — UI/UX Designer & Frontend Developer</h1>
-            <p className="sr-only">Portfolio of Agus Fathurrahman Rifai — IT student at Universitas Brawijaya crafting playful, animated web experiences with React, GSAP, and Tailwind CSS.</p>
+            <h1 className="sr-only">Fathur — UI/UX Designer & Frontend Developer di Malang</h1>
+            <p className="sr-only">Portofolio Agus Fathurrahman Rifai (Fathur) — UI/UX Designer & Frontend Developer di Malang, mahasiswa Universitas Brawijaya. Menyediakan jasa pembuatan website, desain poster event, dan branding dengan React, GSAP, dan Tailwind CSS.</p>
 
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div

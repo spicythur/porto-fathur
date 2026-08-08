@@ -1,17 +1,24 @@
 # Fathur Portfolio
 
-> Portfolio site for Agus Fathurrahman Rifai (Fathur), an IT student at Universitas Brawijaya specializing in UI/UX Design and Frontend Development.
+> Portfolio website of Agus Fathurrahman Rifai (Fathur) — UI/UX Designer & Frontend Developer based in Malang, Indonesia. IT student at Universitas Brawijaya specializing in UI/UX Design, Frontend Development (React, Next.js, TypeScript, Tailwind CSS, GSAP animation), and Graphic Design (poster event, branding, apparel design).
 
-This is a single-page personal portfolio built with React, GSAP, and Tailwind CSS. It showcases web development projects, graphic/apparel design work, professional experience, and skills in React, Figma, GSAP, Tailwind CSS, Next.js, and TypeScript.
+This single-page personal portfolio showcases web development projects, graphic & apparel design work, professional experience, and skills. Built with React, GSAP, and Tailwind CSS.
 
 ## Sections
 
-- [Home](https://porto-fathur.vercel.app/): Portfolio landing page with hero section
-- [About](https://porto-fathur.vercel.app/#about): Background, education, and personal introduction
-- [Skills](https://porto-fathur.vercel.app/#skills): Technical skills and design tools
-- [Experience](https://porto-fathur.vercel.app/#experience): Work and community involvement (Provoks Multimedia, PKKMB, internships)
-- [Projects](https://porto-fathur.vercel.app/#projects): Portfolio of web development and graphic design projects
+- [Home](https://porto-fathur.vercel.app/): Portfolio landing page — UI/UX Designer & Frontend Developer
+- [About](https://porto-fathur.vercel.app/#about): Background, education at Universitas Brawijaya, journey from Jakarta to Malang
+- [Skills](https://porto-fathur.vercel.app/#skills): React, Next.js, TypeScript, Tailwind CSS, GSAP, Figma, Adobe Illustrator, web design
+- [Experience](https://porto-fathur.vercel.app/#experience): Provoks Multimedia, PKKMB Universitas Brawijaya, internships
+- [Projects](https://porto-fathur.vercel.app/#projects): Web development, UI/UX design, poster event design, apparel design portfolio
 - [Contact](https://porto-fathur.vercel.app/#contact): Email, phone, and social links
+
+## Services
+
+- UI/UX Design & Frontend Development (React, Next.js, TypeScript, Tailwind CSS)
+- Web design & animated web experiences (GSAP, ScrollTrigger, Lenis)
+- Graphic design: poster event, branding, social media design (jasa desain poster)
+- Apparel & merchandise design: kaos komunitas, varsity jacket, bomber jacket
 
 ## Links
 

@@ -154,8 +154,9 @@ export default function Contact() {
                 {/* Tombol */}
                 <a
                     ref={btnRef}
-                    href="/cv.pdf"
-                    download
+                    href="https://wa.me/6285158329255?text=Halo%20Fathur!%20Saya%20tertarik%20untuk%20bekerja%20sama%20dengan%20kamu."
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="contact-item mt-2 px-5 py-2 text-xs md:px-8 md:py-3 md:text-base bg-[#F7DF19] rounded-full text-[#2E8E37] font-black tracking-widest hover:bg-[#2E8E37] hover:text-[#F7DF19] transition-colors duration-300 inline-block"
                 >
                     WORKING WITH ME

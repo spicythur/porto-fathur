@@ -2,7 +2,7 @@
 
 Personal portfolio website with a playful beach/tropical vibe. Built with smooth animations, draggable skill icons, and polaroid-style project cards.
 
-**Live**: [porto-fathur.vercel.app](https://porto-fathur.vercel.app)
+**Live**: [portofathur.my.id](https://portofathur.my.id)
 
 ## Tech Stack
 
@@ -28,4 +28,4 @@ npm run dev
 
 ---
 
-Made by [Fathur](https://porto-fathur.vercel.app)
+Made by [Fathur](https://portofathur.my.id)

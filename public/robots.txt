@@ -43,4 +43,4 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-Sitemap: https://porto-fathur.vercel.app/sitemap.xml
+Sitemap: https://portofathur.my.id/sitemap.xml

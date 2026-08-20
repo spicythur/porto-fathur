@@ -6,12 +6,12 @@ This single-page personal portfolio showcases web development projects, graphic 
 
 ## Sections
 
-- [Home](https://porto-fathur.vercel.app/): Portfolio landing page — UI/UX Designer & Frontend Developer
-- [About](https://porto-fathur.vercel.app/#about): Background, education at Universitas Brawijaya, journey from Jakarta to Malang
-- [Skills](https://porto-fathur.vercel.app/#skills): React, Next.js, TypeScript, Tailwind CSS, GSAP, Figma, Adobe Illustrator, web design
-- [Experience](https://porto-fathur.vercel.app/#experience): Provoks Multimedia, PKKMB Universitas Brawijaya, internships
-- [Projects](https://porto-fathur.vercel.app/#projects): Web development, UI/UX design, poster event design, apparel design portfolio
-- [Contact](https://porto-fathur.vercel.app/#contact): Email, phone, and social links
+- [Home](https://portofathur.my.id/): Portfolio landing page — UI/UX Designer & Frontend Developer
+- [About](https://portofathur.my.id/#about): Background, education at Universitas Brawijaya, journey from Jakarta to Malang
+- [Skills](https://portofathur.my.id/#skills): React, Next.js, TypeScript, Tailwind CSS, GSAP, Figma, Adobe Illustrator, web design
+- [Experience](https://portofathur.my.id/#experience): Provoks Multimedia, PKKMB Universitas Brawijaya, internships
+- [Projects](https://portofathur.my.id/#projects): Web development, UI/UX design, poster event design, apparel design portfolio
+- [Contact](https://portofathur.my.id/#contact): Email, phone, and social links
 
 ## Services
 

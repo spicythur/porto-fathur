@@ -16,7 +16,7 @@ const projects = [
         alt: 'Porto Fathur portfolio website dengan GSAP scroll animation dan responsive design',
         description: 'Portfolio website Fathur dengan GSAP scroll animation dan responsive design. Personal portfolio built with React, Tailwind CSS, and Lenis to showcase web development, UI/UX design, and graphic design work.',
         tech: ['React', 'Tailwind', 'GSAP'],
-        liveUrl: 'https://porto-fathur.vercel.app',
+        liveUrl: 'https://portofathur.my.id',
         githubUrl: 'https://github.com/spicythur/porto-fathur',
     },
     {

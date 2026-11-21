@@ -394,6 +394,7 @@ const Projects = () => {
                                     className={`project-panel shrink-0 flex flex-col justify-start items-center bottom-24 relative pt-3 ${index !== 0 ? '-ml-24' : ''}`}
                                 >
                                     <div
+                                        data-project-id={project.id}
                                         onClick={() => setSelectedProject(project)}
                                         className={`project-card relative w-[350px] bg-[#F4F1EA] shadow-xl flex flex-col hover:scale-110 hover:rotate-0 hover:z-50 ${rotation} ${yOffset} cursor-pointer rounded-sm transition-all duration-300`}
                                         style={{ height: '395px' }}
@@ -440,12 +441,13 @@ const Projects = () => {
                 </div>
             </section>
 
-            {/* Modal */}
+            {/* Modal — desktop: kirim getOrigin biar kartu "terbang" jadi modal (FLIP) */}
             <ProjectModal
                 project={selectedProject}
                 projects={projects}
                 onClose={() => setSelectedProject(null)}
                 onSelect={setSelectedProject}
+                getOrigin={(id) => wrapperRef.current?.querySelector(`[data-project-id="${id}"]`)}
             />
         </>
     );

@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { useGSAP } from "@gsap/react";
+import { makeThrowable } from "../lib/throwable";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 
@@ -10,8 +11,26 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, useGSAP);
 const DESIGN_WIDTH = 1440;
 const DESIGN_HEIGHT = 820;
 
+// Stiker lempar cuma aktif di desktop yang pakai mouse/trackpad.
+// HP & tablet touch: query ini false → stiker baru nggak di-render, kode drag nggak jalan.
+const DESKTOP_POINTER = "(min-width: 768px) and (hover: hover) and (pointer: fine)";
+
+function useDesktopPointer() {
+    const [match, setMatch] = useState(() => window.matchMedia(DESKTOP_POINTER).matches);
+    useEffect(() => {
+        const mq = window.matchMedia(DESKTOP_POINTER);
+        const onChange = () => setMatch(mq.matches);
+        mq.addEventListener("change", onChange);
+        return () => mq.removeEventListener("change", onChange);
+    }, []);
+    return match;
+}
+
 export default function Hero() {
     const container = useRef();
+    const stageRef = useRef();
+    const hintRef = useRef();
+    const desktopPointer = useDesktopPointer();
 
     const [mobileScale, setMobileScale] = useState(
         () => window.innerWidth < 768 ? window.innerWidth / DESIGN_WIDTH : null
@@ -106,6 +125,23 @@ export default function Hero() {
 
     }, { scope: container });
 
+    // ── Stiker bisa di-drag & dilempar (DESKTOP ONLY) ─────────────────────────
+    useGSAP(() => {
+        if (!desktopPointer) return;
+        let hintGone = false;
+        if (hintRef.current) {
+            gsap.from(hintRef.current, { opacity: 0, y: 10, duration: 0.6, delay: 2.4, ease: "power2.out" });
+        }
+        const hideHint = () => {
+            if (hintGone || !hintRef.current) return;
+            hintGone = true;
+            gsap.to(hintRef.current, { opacity: 0, y: -8, duration: 0.4, ease: "power2.in" });
+        };
+        const cleanups = gsap.utils.toArray(".hero-drag", container.current)
+            .map((el) => makeThrowable(el, { stage: stageRef.current, onGrab: hideHint }));
+        return () => cleanups.forEach((fn) => fn());
+    }, { scope: container, dependencies: [desktopPointer] });
+
     return (
         <section
             id="home"
@@ -120,6 +156,7 @@ export default function Hero() {
 
             {/* Wrapper — desktop: full screen; mobile: komposisi desktop di-scale */}
             <div
+                ref={stageRef}
                 className="relative w-full md:h-screen"
                 style={mobileScale ? { width: `${DESIGN_WIDTH}px`, height: `${DESIGN_HEIGHT}px`, transform: `scale(${mobileScale})`, transformOrigin: 'top left' } : undefined}
             >
@@ -164,8 +201,22 @@ export default function Hero() {
                     src="/stiker.webp"
                     alt=""
                     aria-hidden="true"
-                    className="hero-stiker absolute top-24 right-16 md:right-24 w-20 md:w-44 z-10 pointer-events-none"
+                    className={`hero-stiker ${desktopPointer ? "hero-drag" : ""} absolute top-24 right-16 md:right-24 w-20 md:w-44 z-10 pointer-events-none`}
                 />
+
+                {/* DESKTOP ONLY: hint. Di HP nggak di-render sama sekali. */}
+                {desktopPointer && (
+                    <>
+                        <p
+                            ref={hintRef}
+                            aria-hidden="true"
+                            className="absolute top-[19.5rem] right-20 z-10 font-[crayon] text-2xl text-[#F7DF19] -rotate-6 pointer-events-none select-none"
+                            style={{ textShadow: "2px 2px 0 #2E8E37" }}
+                        >
+                            psst… aku bisa dilempar ↑
+                        </p>
+                    </>
+                )}
             </div>
 
         </section>

@@ -1,13 +1,21 @@
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Draggable } from "gsap/Draggable";
 import { useGSAP } from "@gsap/react";
+import { makeThrowable } from "../lib/throwable";
 
-gsap.registerPlugin(useGSAP, ScrollTrigger, Draggable);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 // Lebar desain desktop — dipakai untuk scale layout floating di mobile
 const DESIGN_WIDTH = 1440;
+
+// Desktop: posisi "mendarat" acak-tapi-terkomposisi biar kesannya kayak stiker
+// yang dilempar ke meja (x/y relatif ke posisi asli, r = kemiringan).
+const LAND = [
+    { x: -40, y: -30, r: -14 }, { x: -70, y: 20, r: 18 }, { x: 60, y: -40, r: -22 },
+    { x: 30, y: 40, r: 9 }, { x: -20, y: -50, r: -8 }, { x: 80, y: 30, r: 26 },
+    { x: -60, y: -10, r: -18 }, { x: 40, y: -60, r: 12 }, { x: -30, y: 50, r: -25 },
+];
 
 const SKILLS = [
     { src: '/illustrator.svg', alt: 'Illustrator', w: 'w-40', dur: '4s',   delay: '0s',   style: { top: '380px', left: '50%',  transform: 'translateX(-50%)' } },
@@ -38,19 +46,50 @@ export default function Skill() {
     }, []);
 
     useGSAP(() => {
-        // Pop-in: skill icons (via refs)
-        gsap.from(iconRefs.current.filter(Boolean), {
-            scrollTrigger: {
-                trigger: container.current,
-                start: "top 40%",
-            },
-            scale: 0,
-            rotation: 45,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "back.out(2)"
-        });
+        const icons = iconRefs.current.filter(Boolean);
+        const isDesktop = window.innerWidth >= 768;
+
+        if (!isDesktop) {
+            // MOBILE: pop-in lama, nggak diubah
+            gsap.from(icons, {
+                scrollTrigger: {
+                    trigger: container.current,
+                    start: "top 40%",
+                },
+                scale: 0,
+                rotation: 45,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "back.out(2)"
+            });
+        } else {
+            // DESKTOP: ikon "dilempar" masuk dari bawah sambil muter,
+            // lalu mendarat berantakan dengan kemiringan beda-beda.
+            // baseX nyimpen offset transform bawaan (mis. translateX(-50%) Illustrator).
+            const baseX = icons.map((el) => gsap.getProperty(el, "x"));
+            const land = (i) => LAND[i % LAND.length];
+            gsap.fromTo(icons, {
+                x: (i) => baseX[i] + land(i).x + gsap.utils.random(-260, 260),
+                y: 700,
+                rotation: (i) => land(i).r + gsap.utils.random(-540, 540),
+                scale: 0.6,
+                opacity: 0,
+            }, {
+                x: (i) => baseX[i] + land(i).x,
+                y: (i) => land(i).y,
+                rotation: (i) => land(i).r,
+                scale: 1,
+                opacity: 1,
+                duration: 1.1,
+                ease: "power3.out",
+                stagger: { each: 0.07, from: "random" },
+                scrollTrigger: {
+                    trigger: container.current,
+                    start: "top 40%",
+                },
+            });
+        }
 
         // Pop-in: doodle dekoratif
         gsap.from(".skill-doodle", {
@@ -107,26 +146,14 @@ export default function Skill() {
 
         window.addEventListener("mousemove", handleMouseMove);
 
-        // Draggable — desktop only
-        if (window.innerWidth >= 768) {
-            iconRefs.current.filter(Boolean).forEach(el => {
-                Draggable.create(el, {
-                    type: 'x,y',
-                    edgeResistance: 0.65,
-                    onPress() {
-                        gsap.to(el, { scale: 1.15, duration: 0.15, ease: 'power2.out', zIndex: 50 });
-                        document.body.style.cursor = 'grabbing';
-                    },
-                    onRelease() {
-                        gsap.to(el, { scale: 1, duration: 0.35, ease: 'back.out(2)', zIndex: 'auto' });
-                        document.body.style.cursor = '';
-                    },
-                });
-            });
-        }
+        // Desktop: ikon bisa dicabut & dilempar, mantul di tepi section
+        const throwCleanups = isDesktop
+            ? icons.map((el) => makeThrowable(el, { stage: container.current }))
+            : [];
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
+            throwCleanups.forEach((fn) => fn());
             document.body.style.cursor = '';
         };
 
